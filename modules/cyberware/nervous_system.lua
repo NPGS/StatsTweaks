@@ -1,31 +1,31 @@
--- ver. 2.2 beta
+-- ver. 2.2
 
 -- KERENZIKOV
 
 	-- Common
-	TweakDB:SetFlat("Items.KerenzikovCommon_inline3.value", 4)
-	TweakDB:SetFlat("Items.KerenzikovCommon_inline5.value", 0.5)
-	TweakDB:SetFlat("Items.KerenzikovCommon_inline9.floatValues", {4, 50, 5})
+	TweakDB:SetFlat("Items.KerenzikovCommon_inline3.value", 4)	-- duration
+	TweakDB:SetFlat("Items.KerenzikovCommon_inline5.value", 0.4)	-- player time scale
+	TweakDB:SetFlat("Items.KerenzikovCommon_inline9.floatValues", {4, 50, 5})	-- uidata
 
 	-- Uncommon
-	TweakDB:SetFlat("Items.KerenzikovUncommon_inline3.value", 4)
-	TweakDB:SetFlat("Items.KerenzikovUncommon_inline5.value", 0.4)
-	TweakDB:SetFlat("Items.KerenzikovUncommon_inline9.floatValues", {4, 60, 5})
+	TweakDB:SetFlat("Items.KerenzikovUncommon_inline3.value", 4)	-- duration
+	TweakDB:SetFlat("Items.KerenzikovUncommon_inline5.value", 0.4)	-- player time scale
+	TweakDB:SetFlat("Items.KerenzikovUncommon_inline9.floatValues", {4, 60, 5})	-- uidata
 
 	-- Rare
-	TweakDB:SetFlat("Items.KerenzikovRare_inline4.value", 4)
-	TweakDB:SetFlat("Items.KerenzikovRare_inline6.value", 0.3)
-	TweakDB:SetFlat("Items.KerenzikovRare_inline10.floatValues", {4, 70, 5})
+	TweakDB:SetFlat("Items.KerenzikovRare_inline4.value", 4)	-- duration
+	TweakDB:SetFlat("Items.KerenzikovRare_inline6.value", 0.4)	-- player time scale
+	TweakDB:SetFlat("Items.KerenzikovRare_inline10.floatValues", {4, 70, 5})	-- uidata
 
 	-- Epic
-	TweakDB:SetFlat("Items.KerenzikovEpic_inline4.value", 4)
-	TweakDB:SetFlat("Items.KerenzikovEpic_inline6.value", 0.2)
-	TweakDB:SetFlat("Items.KerenzikovEpic_inline10.floatValues", {4, 80, 5})
+	TweakDB:SetFlat("Items.KerenzikovEpic_inline4.value", 4)	-- duration
+	TweakDB:SetFlat("Items.KerenzikovEpic_inline6.value", 0.4)	-- player time scale
+	TweakDB:SetFlat("Items.KerenzikovEpic_inline10.floatValues", {4, 80, 5})	-- uidata
 
 	-- Legendary
-	TweakDB:SetFlat("Items.KerenzikovLegendary_inline4.value", 4)
-	TweakDB:SetFlat("Items.KerenzikovLegendary_inline6.value", 0.1)
-	TweakDB:SetFlat("Items.KerenzikovLegendary_inline10.floatValues", {4, 90, 5})
+	TweakDB:SetFlat("Items.KerenzikovLegendary_inline4.value", 4)	-- duration
+	TweakDB:SetFlat("Items.KerenzikovLegendary_inline6.value", 0.4)	-- player time scale
+	TweakDB:SetFlat("Items.KerenzikovLegendary_inline10.floatValues", {4, 90, 5})	-- uidata
 
 
 -- NANORELAYS
