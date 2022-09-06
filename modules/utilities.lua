@@ -1,11 +1,11 @@
--- ver. 2.0
+-- ver. 2.2
 
 -- Utilites
 
 	mltp = TweakDB:GetFlat("Items.SandevistanC2MK3_inline7.operationType")	-- operationType
 
 
--- Functions
+-- Functions: All credits for these goes to the CP77 Modding Community
 
 	-- addToList
 	function addToList(list, record)
