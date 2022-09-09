@@ -59,7 +59,7 @@
 		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_melee_fix.refStat", "BaseStats.BerserkMeleeDamageBonus")
 		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_melee_fix.statType", "BaseStats.BaseDamage")
 		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_melee_fix.value", 0.01)
-		addToList("BaseStatusEffect.BerserkPlayerBuff_inline19.statModifiers", "BaseStatusEffect.BerserkPlayerBuff_melee_fix")
+		addToList("BaseStatusEffect.BerserkPlayerBuff_inline7.stats", "BaseStatusEffect.BerserkPlayerBuff_melee_fix")
 	end
 
 
