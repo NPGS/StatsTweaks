@@ -1,4 +1,4 @@
--- ver. 2.1
+-- ver. 2.2
 
 -- BERSERK FIXES
 
@@ -48,6 +48,16 @@
 		TweakDB:SetFlat("Items.Berserk_LowResistance.value", 10)
 		TweakDB:SetFlat("Items.Berserk_AvgResistance.value", 20)
 		TweakDB:SetFlat("Items.Berserk_HighResistance.value", 30)
+
+
+	-- MELEE DAMAGE FIX
+	if TweakDB:GetRecord("BaseStatusEffect.BerserkPlayerBuff_melee_fix") == nil then
+		TweakDB:CreateRecord("BaseStatusEffect.BerserkPlayerBuff_melee_fix", "gamedataConstantStatModifier_Record")
+		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_melee_fix.modifierType", "AdditiveMultiplier")
+		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_melee_fix.statType", "BaseStats.BerserkMeleeDamageBonus")
+		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_melee_fix.value", 0.01)
+		addToList("BaseStatusEffect.BerserkPlayerBuff_inline19.statModifiers", "BaseStatusEffect.BerserkPlayerBuff_melee_fix")
+	end
 
 
 	-- UIDATA COOLDOWN FIX (for Chained Berserk mod equipped)
