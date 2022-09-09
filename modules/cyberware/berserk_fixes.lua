@@ -50,16 +50,16 @@
 		TweakDB:SetFlat("Items.Berserk_HighResistance.value", 30)
 
 
-	-- MELEE DAMAGE FIX
-	if TweakDB:GetRecord("BaseStatusEffect.BerserkPlayerBuff_melee_fix") == nil then
-		TweakDB:CreateRecord("BaseStatusEffect.BerserkPlayerBuff_melee_fix", "gamedataCombinedStatModifier_Record")
-		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_melee_fix.modifierType", "AdditiveMultiplier")
-		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_melee_fix.opSymbol", "*")
-		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_melee_fix.refObject", "Player")
-		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_melee_fix.refStat", "BaseStats.BerserkMeleeDamageBonus")
-		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_melee_fix.statType", "BaseStats.BaseDamage")
-		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_melee_fix.value", 0.01)
-		addToList("BaseStatusEffect.BerserkPlayerBuff_inline7.stats", "BaseStatusEffect.BerserkPlayerBuff_melee_fix")
+	-- MELEE DAMAGE DMG ADD
+	if TweakDB:GetRecord("BaseStatusEffect.BerserkPlayerBuff_melee_dmg") == nil then
+		TweakDB:CreateRecord("BaseStatusEffect.BerserkPlayerBuff_melee_dmg", "gamedataCombinedStatModifier_Record")
+		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_melee_dmg.modifierType", "AdditiveMultiplier")
+		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_melee_dmg.opSymbol", "*")
+		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_melee_dmg.refObject", "Player")
+		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_melee_dmg.refStat", "BaseStats.BerserkMeleeDamageBonus")
+		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_melee_dmg.statType", "BaseStats.EffectiveDPS")
+		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_melee_dmg.value", 0.01)
+		addToList("BaseStatusEffect.BerserkPlayerBuff_inline19.statModifiers", "BaseStatusEffect.BerserkPlayerBuff_melee_dmg")
 	end
 
 
