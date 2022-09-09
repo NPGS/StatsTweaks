@@ -52,9 +52,12 @@
 
 	-- MELEE DAMAGE FIX
 	if TweakDB:GetRecord("BaseStatusEffect.BerserkPlayerBuff_melee_fix") == nil then
-		TweakDB:CreateRecord("BaseStatusEffect.BerserkPlayerBuff_melee_fix", "gamedataConstantStatModifier_Record")
+		TweakDB:CreateRecord("BaseStatusEffect.BerserkPlayerBuff_melee_fix", "gamedataCombinedStatModifier_Record")
 		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_melee_fix.modifierType", "AdditiveMultiplier")
-		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_melee_fix.statType", "BaseStats.BerserkMeleeDamageBonus")
+		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_melee_fix.opSymbol", "*")
+		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_melee_fix.refObject", "Player")
+		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_melee_fix.refStat", "BaseStats.BerserkMeleeDamageBonus")
+		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_melee_fix.statType", "BaseStats.BaseDamage")
 		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_melee_fix.value", 0.01)
 		addToList("BaseStatusEffect.BerserkPlayerBuff_inline19.statModifiers", "BaseStatusEffect.BerserkPlayerBuff_melee_fix")
 	end
