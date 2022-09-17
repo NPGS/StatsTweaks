@@ -1,4 +1,4 @@
--- ver. 2.2
+-- ver. 2.3
 
 -- BERSERK FIXES
 
@@ -19,10 +19,10 @@
 			TweakDB:CreateRecord("Items.Berserk_LowResistance", "gamedataConstantStatModifier_Record")
 			TweakDB:SetFlat("Items.Berserk_LowResistance.modifierType", "Additive")
 			TweakDB:SetFlat("Items.Berserk_LowResistance.statType", "BaseStats.BerserkResistancesBonus")
-			addToList("Items.BerserkC1MK1.statModifiers", "Items.Berserk_LowResistance")
-			addToList("Items.BerserkC1MK2.statModifiers", "Items.Berserk_LowResistance")
-			addToList("Items.BerserkC2MK1.statModifiers", "Items.Berserk_LowResistance")
-			addToList("Items.BerserkC2MK2.statModifiers", "Items.Berserk_LowResistance")
+			arrayInsert("Items.BerserkC1MK1.statModifiers", "Items.Berserk_LowResistance")
+			arrayInsert("Items.BerserkC1MK2.statModifiers", "Items.Berserk_LowResistance")
+			arrayInsert("Items.BerserkC2MK1.statModifiers", "Items.Berserk_LowResistance")
+			arrayInsert("Items.BerserkC2MK2.statModifiers", "Items.Berserk_LowResistance")
 		end
 
 		-- ADD RESISTANCES TO BERSERKS Mk.3 / Mk.4
@@ -30,10 +30,10 @@
 			TweakDB:CreateRecord("Items.Berserk_AvgResistance", "gamedataConstantStatModifier_Record")
 			TweakDB:SetFlat("Items.Berserk_AvgResistance.modifierType", "Additive")
 			TweakDB:SetFlat("Items.Berserk_AvgResistance.statType", "BaseStats.BerserkResistancesBonus")
-			addToList("Items.BerserkC1MK3.statModifiers", "Items.Berserk_AvgResistance")
-			addToList("Items.BerserkC2MK3.statModifiers", "Items.Berserk_AvgResistance")
-			addToList("Items.BerserkC2MK4.statModifiers", "Items.Berserk_AvgResistance")
-			addToList("Items.BerserkC3MK4.statModifiers", "Items.Berserk_AvgResistance")
+			arrayInsert("Items.BerserkC1MK3.statModifiers", "Items.Berserk_AvgResistance")
+			arrayInsert("Items.BerserkC2MK3.statModifiers", "Items.Berserk_AvgResistance")
+			arrayInsert("Items.BerserkC2MK4.statModifiers", "Items.Berserk_AvgResistance")
+			arrayInsert("Items.BerserkC3MK4.statModifiers", "Items.Berserk_AvgResistance")
 		end
 
 		-- ADD RESISTANCES TO BERSERKS Mk.5
@@ -41,8 +41,8 @@
 			TweakDB:CreateRecord("Items.Berserk_HighResistance", "gamedataConstantStatModifier_Record")
 			TweakDB:SetFlat("Items.Berserk_HighResistance.modifierType", "Additive")
 			TweakDB:SetFlat("Items.Berserk_HighResistance.statType", "BaseStats.BerserkResistancesBonus")
-			addToList("Items.BerserkC3MK5.statModifiers", "Items.Berserk_HighResistance")
-			addToList("Items.BerserkC4MK5.statModifiers", "Items.Berserk_HighResistance")
+			arrayInsert("Items.BerserkC3MK5.statModifiers", "Items.Berserk_HighResistance")
+			arrayInsert("Items.BerserkC4MK5.statModifiers", "Items.Berserk_HighResistance")
 		end
 		-- SET RESISTANCES VALUE
 		TweakDB:SetFlat("Items.Berserk_LowResistance.value", 10)
@@ -59,7 +59,7 @@
 		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_melee_dmg.refStat", "BaseStats.BerserkMeleeDamageBonus")
 		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_melee_dmg.statType", "BaseStats.EffectiveDPS")
 		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_melee_dmg.value", 0.01)
-		addToList("BaseStatusEffect.BerserkPlayerBuff_inline19.statModifiers", "BaseStatusEffect.BerserkPlayerBuff_melee_dmg")
+		arrayInsert("BaseStatusEffect.BerserkPlayerBuff_inline19.statModifiers", "BaseStatusEffect.BerserkPlayerBuff_melee_dmg")
 	end
 
 
@@ -71,14 +71,14 @@
 		TweakDB:SetFlat("Items.BerserkBase_inline4.value", 1)
 		TweakDB:SetFlat("Items.BerserkBase.statModifiers", {"Items.BerserkBase_inline3","Items.BerserkBase_inline4"})
 		TweakDB:SetFlat("BaseStatusEffect.BerserkCooldown_inline0.statModifiers", {"BaseStatusEffect.CyberwareCooldownDuration_inline0","BaseStatusEffect.BerserkCooldown_inline1","BaseStatusEffect.BerserkCooldown_inline2"})
-		addToList("Items.BerserkC1MK2.statModifiers", "Items.BerserkBase_inline4")
-		addToList("Items.BerserkC1MK3.statModifiers", "Items.BerserkBase_inline4")
-		addToList("Items.BerserkC2MK2.statModifiers", "Items.BerserkBase_inline4")
-		addToList("Items.BerserkC2MK3.statModifiers", "Items.BerserkBase_inline4")
-		addToList("Items.BerserkC2MK4.statModifiers", "Items.BerserkBase_inline4")
-		addToList("Items.BerserkC3MK4.statModifiers", "Items.BerserkBase_inline4")
-		addToList("Items.BerserkC3MK5.statModifiers", "Items.BerserkBase_inline4")
-		addToList("Items.BerserkC4MK5.statModifiers", "Items.BerserkBase_inline4")
+		arrayInsert("Items.BerserkC1MK2.statModifiers", "Items.BerserkBase_inline4")
+		arrayInsert("Items.BerserkC1MK3.statModifiers", "Items.BerserkBase_inline4")
+		arrayInsert("Items.BerserkC2MK2.statModifiers", "Items.BerserkBase_inline4")
+		arrayInsert("Items.BerserkC2MK3.statModifiers", "Items.BerserkBase_inline4")
+		arrayInsert("Items.BerserkC2MK4.statModifiers", "Items.BerserkBase_inline4")
+		arrayInsert("Items.BerserkC3MK4.statModifiers", "Items.BerserkBase_inline4")
+		arrayInsert("Items.BerserkC3MK5.statModifiers", "Items.BerserkBase_inline4")
+		arrayInsert("Items.BerserkC4MK5.statModifiers", "Items.BerserkBase_inline4")
 	end
 
 
@@ -96,12 +96,12 @@
 				TweakDB:SetFlat("Items.BerserkCarryCapacity_M_inline1.statGroup", "Items.BerserkCarryCapacity_M_inline2")
 					TweakDB:SetFlat("Items.BerserkCarryCapacity_M_inline2.statModifiers", {"Items.BerserkCarryCapacity_M_inline3"})
 			TweakDB:SetFlat("Items.BerserkCarryCapacity_M_inline0.UIData", "Items.BerserkCarryCapacity_M_inline4")
-			addToList("Items.BerserkC1MK1.OnEquip", "Items.BerserkCarryCapacity_M_inline0")
-			addToList("Items.BerserkC1MK2.OnEquip", "Items.BerserkCarryCapacity_M_inline0")
-			addToList("Items.BerserkC1MK3.OnEquip", "Items.BerserkCarryCapacity_M_inline0")
-			addToList("Items.BerserkC2MK1.OnEquip", "Items.BerserkCarryCapacity_M_inline0")
-			addToList("Items.BerserkC2MK2.OnEquip", "Items.BerserkCarryCapacity_M_inline0")
-			addToList("Items.BerserkC2MK3.OnEquip", "Items.BerserkCarryCapacity_M_inline0")
+			arrayInsert("Items.BerserkC1MK1.OnEquip", "Items.BerserkCarryCapacity_M_inline0")
+			arrayInsert("Items.BerserkC1MK2.OnEquip", "Items.BerserkCarryCapacity_M_inline0")
+			arrayInsert("Items.BerserkC1MK3.OnEquip", "Items.BerserkCarryCapacity_M_inline0")
+			arrayInsert("Items.BerserkC2MK1.OnEquip", "Items.BerserkCarryCapacity_M_inline0")
+			arrayInsert("Items.BerserkC2MK2.OnEquip", "Items.BerserkCarryCapacity_M_inline0")
+			arrayInsert("Items.BerserkC2MK3.OnEquip", "Items.BerserkCarryCapacity_M_inline0")
 		end
 
 		-- HIGH CAPACITY Mk.4 / Mk.5
@@ -116,10 +116,10 @@
 				TweakDB:SetFlat("Items.BerserkCarryCapacity_H_inline1.statGroup", "Items.BerserkCarryCapacity_H_inline2")
 					TweakDB:SetFlat("Items.BerserkCarryCapacity_H_inline2.statModifiers", {"Items.BerserkCarryCapacity_H_inline3"})
 			TweakDB:SetFlat("Items.BerserkCarryCapacity_H_inline0.UIData", "Items.BerserkCarryCapacity_H_inline4")
-			addToList("Items.BerserkC2MK4.OnEquip", "Items.BerserkCarryCapacity_H_inline0")
-			addToList("Items.BerserkC3MK4.OnEquip", "Items.BerserkCarryCapacity_H_inline0")
-			addToList("Items.BerserkC3MK5.OnEquip", "Items.BerserkCarryCapacity_H_inline0")
-			addToList("Items.BerserkC4MK5.OnEquip", "Items.BerserkCarryCapacity_H_inline0")
+			arrayInsert("Items.BerserkC2MK4.OnEquip", "Items.BerserkCarryCapacity_H_inline0")
+			arrayInsert("Items.BerserkC3MK4.OnEquip", "Items.BerserkCarryCapacity_H_inline0")
+			arrayInsert("Items.BerserkC3MK5.OnEquip", "Items.BerserkCarryCapacity_H_inline0")
+			arrayInsert("Items.BerserkC4MK5.OnEquip", "Items.BerserkCarryCapacity_H_inline0")
 		end
 
 
@@ -138,10 +138,10 @@
 					TweakDB:SetFlat("Items.BerserkLowDmgReduction_inline2.value", 0.85, 'Float')
 			TweakDB:SetFlat("Items.BerserkLowDmgReduction_inline0.UIData", "Items.BerserkLowDmgReduction_inline3")
 				TweakDB:SetFlat("Items.BerserkLowDmgReduction_inline3.intValues", {15})	-- UIDATA
-			addToList("Items.BerserkC1MK1.OnEquip", "Items.BerserkLowDmgReduction_inline0")
-			addToList("Items.BerserkC1MK2.OnEquip", "Items.BerserkLowDmgReduction_inline0")
-			addToList("Items.BerserkC2MK1.OnEquip", "Items.BerserkLowDmgReduction_inline0")
-			addToList("Items.BerserkC2MK2.OnEquip", "Items.BerserkLowDmgReduction_inline0")
+			arrayInsert("Items.BerserkC1MK1.OnEquip", "Items.BerserkLowDmgReduction_inline0")
+			arrayInsert("Items.BerserkC1MK2.OnEquip", "Items.BerserkLowDmgReduction_inline0")
+			arrayInsert("Items.BerserkC2MK1.OnEquip", "Items.BerserkLowDmgReduction_inline0")
+			arrayInsert("Items.BerserkC2MK2.OnEquip", "Items.BerserkLowDmgReduction_inline0")
 		end
 
 		-- MEDIUM REDUCTION
@@ -157,10 +157,10 @@
 					TweakDB:SetFlat("Items.BerserkMediumDmgReduction_inline2.value", 0.7, 'Float')
 			TweakDB:SetFlat("Items.BerserkMediumDmgReduction_inline0.UIData", "Items.BerserkMediumDmgReduction_inline3")
 				TweakDB:SetFlat("Items.BerserkMediumDmgReduction_inline3.intValues", {30})	-- UIDATA
-			addToList("Items.BerserkC1MK3.OnEquip", "Items.BerserkMediumDmgReduction_inline0")
-			addToList("Items.BerserkC2MK3.OnEquip", "Items.BerserkMediumDmgReduction_inline0")
-			addToList("Items.BerserkC2MK4.OnEquip", "Items.BerserkMediumDmgReduction_inline0")
-			addToList("Items.BerserkC3MK4.OnEquip", "Items.BerserkMediumDmgReduction_inline0")
+			arrayInsert("Items.BerserkC1MK3.OnEquip", "Items.BerserkMediumDmgReduction_inline0")
+			arrayInsert("Items.BerserkC2MK3.OnEquip", "Items.BerserkMediumDmgReduction_inline0")
+			arrayInsert("Items.BerserkC2MK4.OnEquip", "Items.BerserkMediumDmgReduction_inline0")
+			arrayInsert("Items.BerserkC3MK4.OnEquip", "Items.BerserkMediumDmgReduction_inline0")
 		end
 
 		-- HIGH REDUCTION
@@ -176,6 +176,6 @@
 					TweakDB:SetFlat("Items.BerserkHighDmgReduction_inline2.value", 0.55, 'Float')
 			TweakDB:SetFlat("Items.BerserkHighDmgReduction_inline0.UIData", "Items.BerserkHighDmgReduction_inline3")
 				TweakDB:SetFlat("Items.BerserkHighDmgReduction_inline3.intValues", {45})	-- UIDATA
-			addToList("Items.BerserkC3MK5.OnEquip", "Items.BerserkHighDmgReduction_inline0")
-			addToList("Items.BerserkC4MK5.OnEquip", "Items.BerserkHighDmgReduction_inline0")
+			arrayInsert("Items.BerserkC3MK5.OnEquip", "Items.BerserkHighDmgReduction_inline0")
+			arrayInsert("Items.BerserkC4MK5.OnEquip", "Items.BerserkHighDmgReduction_inline0")
 		end
