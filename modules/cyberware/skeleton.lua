@@ -1,22 +1,4 @@
--- ver. 2.2
-
--- BIONIC JOINTS
-
-	-- Rare
-	TweakDB:SetFlat("Items.JointLockRare_inline3.value", -0.15)
-	TweakDB:SetFlat("Items.JointLockRare_inline4.value", -0.15)
-	TweakDB:SetFlat("Items.JointLockRare_inline5.intValues", {15})
-
-	-- Epic
-	TweakDB:SetFlat("Items.JointLockEpic_inline4.value", -0.3)
-	TweakDB:SetFlat("Items.JointLockEpic_inline5.value", -0.3)
-	TweakDB:SetFlat("Items.JointLockEpic_inline6.intValues", {30})
-	if TweakDB:GetRecord("Vendors.cct_dtn_ripdoc_01_joint_lock_epic") == nil then
-		TweakDB:CloneRecord("Vendors.cct_dtn_ripdoc_01_joint_lock_epic", "Vendors.cct_dtn_ripdoc_01_inline7")
-    	TweakDB:SetFlat("Vendors.cct_dtn_ripdoc_01_joint_lock_epic.item", "Items.JointLockEpic")
-    	addToList("Vendors.cct_dtn_ripdoc_01.itemStock", "Vendors.cct_dtn_ripdoc_01_joint_lock_epic")
-	end
-
+-- ver. 2.3
 
 -- MICROROTORS
 
