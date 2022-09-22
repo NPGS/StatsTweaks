@@ -1,4 +1,4 @@
--- ver. 2.4
+-- ver. 2.4.1
 
 -- SANDEVISTAN
 
@@ -18,7 +18,7 @@
 	TweakDB:SetFlat("Items.SandevistanC2MK4_inline3.value", 20)	-- Dynalar Mk.4
 
 	-- Sandevistan "Warp Dancer" Qiant Mk.5
-	TweakDB:SetFlat("Items.SandevistanC3MK5_inline3.value", 20)			-- cooldown
+	TweakDB:SetFlat("Items.SandevistanC3MK5_inline3.value", 15)			-- cooldown
 	TweakDB:SetFlat("Items.SandevistanC3MK5_inline8.value", 1.2)		-- damage
 	TweakDB:SetFlat("Items.SandevistanC3MK5_inline9.intValues", {20})	-- damage UI
 	TweakDB:SetFlat("Items.SandevistanC3MK5_inline14.value", 20)		-- crit chance
