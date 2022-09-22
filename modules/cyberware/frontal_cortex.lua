@@ -52,21 +52,3 @@
 	-- Legendary
 	TweakDB:SetFlat("Items.LimbicSystemEnhancementLegendary_inline2.value", 15)
 	TweakDB:SetFlat("Items.LimbicSystemEnhancementLegendary_inline3.intValues", {15})
-
-
--- RAM UPGRADE
-
-	-- Common
-	TweakDB:SetFlat("Items.FastAccessMemoryCommon_inline2.value", 0.1)
-	TweakDB:SetFlat("Items.FastAccessMemoryCommon_inline3.value", 0.1)
-	TweakDB:SetFlat("Items.FastAccessMemoryCommon_inline4.floatValues", {0.1})
-
-	-- Uncommon
-	TweakDB:SetFlat("Items.FastAccessMemoryUncommon_inline2.value", 0.15)
-	TweakDB:SetFlat("Items.FastAccessMemoryUncommon_inline3.value", 0.15)
-	TweakDB:SetFlat("Items.FastAccessMemoryUncommon_inline4.floatValues", {0.15})
-
-	-- Rare
-	TweakDB:SetFlat("Items.FastAccessMemoryRare_inline2.value", 0.2)
-	TweakDB:SetFlat("Items.FastAccessMemoryRare_inline3.value", 0.2)
-	TweakDB:SetFlat("Items.FastAccessMemoryRare_inline4.floatValues", {0.2})
