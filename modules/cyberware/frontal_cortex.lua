@@ -1,4 +1,4 @@
--- ver. 2.4
+-- ver. 2.5
 
 -- CAMILLO RAM MANAGER
 
@@ -24,8 +24,8 @@
 	TweakDB:SetFlat("Items.BrainCapacityBoosterEpic_inline3.intValues", {4})
 
 	-- Legendary
-	TweakDB:SetFlat("Items.BrainCapacityBoosterLegendary_inline2.value", 8)
-	TweakDB:SetFlat("Items.BrainCapacityBoosterLegendary_inline3.intValues", {8})
+	TweakDB:SetFlat("Items.BrainCapacityBoosterLegendary_inline2.value", 6)
+	TweakDB:SetFlat("Items.BrainCapacityBoosterLegendary_inline3.intValues", {6})
 
 
 -- IMPROVED PERCEPTION
