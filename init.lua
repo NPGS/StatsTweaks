@@ -1,4 +1,4 @@
--- ver. 2.0	- LUA MODULES LOADER
+-- ver. 2.5	- LUA MODULES LOADER
 
 registerForEvent("onInit", function()
 
@@ -17,6 +17,7 @@ registerForEvent("onInit", function()
 		require("modules/cyberware/berserk_fixes.lua")
 		require("modules/cyberware/berserk.lua")
 		require("modules/cyberware/circulatory_system.lua")
+		require("modules/cyberware/eyes_cw.lua")
 		require("modules/cyberware/frontal_cortex.lua")
 		require("modules/cyberware/hands.lua")
 		require("modules/cyberware/immune_system.lua")
