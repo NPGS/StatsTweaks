@@ -50,5 +50,5 @@
 	TweakDB:SetFlat("Items.LimbicSystemEnhancementRare_inline3.intValues", {8})
 
 	-- Legendary
-	TweakDB:SetFlat("Items.LimbicSystemEnhancementLegendary_inline2.value", 15)
-	TweakDB:SetFlat("Items.LimbicSystemEnhancementLegendary_inline3.intValues", {15})
+	TweakDB:SetFlat("Items.LimbicSystemEnhancementLegendary_inline2.value", 12)
+	TweakDB:SetFlat("Items.LimbicSystemEnhancementLegendary_inline3.intValues", {12})

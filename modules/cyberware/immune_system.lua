@@ -1,4 +1,4 @@
--- ver. 2.0
+-- ver. 2.5
 
 -- CATARESIST
 
@@ -15,19 +15,12 @@
 	TweakDB:SetFlat("Items.ResistancesBoosterLegendary_inline5.intValues", {40})
 
 
--- DETOXIFIER && METABOLIC EDITOR
-
-	-- Rare to Legendary
-	TweakDB:SetFlat("Items.ReverseMetabolicEnhancer.quality", "Quality.Legendary")
-	TweakDB:SetFlat("Items.ToxinCleanser.quality", "Quality.Legendary")
-
-
 -- PAIN EDITOR
 
 	-- Legendary
-	TweakDB:SetFlat("Items.PainReductor_inline2.value", 0.8)
-	TweakDB:SetFlat("Items.PainReductor_inline3.intValues", {20})
-	TweakDB:SetFlat("Price.PainReductor.value", 8)
+	TweakDB:SetFlat("Items.PainReductor_inline2.value", 0.85)
+	TweakDB:SetFlat("Items.PainReductor_inline3.intValues", {15})
+	TweakDB:SetFlat("Price.PainReductor.value", 6.5)
 
 
 -- SHOCK-N-AWE

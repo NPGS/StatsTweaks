@@ -1,4 +1,4 @@
--- ver. 2.1
+-- ver. 2.5
 
 -- BERSERK
 
@@ -6,8 +6,8 @@
 	if TweakDB:GetRecord("Price.Berserk_Iconic") == nil then
 		TweakDB:CloneRecord("Price.Berserk_Iconic", "Price.Berserk")
 	end
-	TweakDB:SetFlat("Price.Berserk_Iconic.value", 15)
-	TweakDB:SetFlat("Price.Berserk.value", 6.5)
+	TweakDB:SetFlat("Price.Berserk_Iconic.value", 10)
+	TweakDB:SetFlat("Price.Berserk.value", 6)
 
 	-- Berserk Moore Mk.1
 	TweakDB:SetFlat("Items.BerserkC1MK1_inline3.value", 10)	-- armor / resistances

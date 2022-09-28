@@ -1,4 +1,4 @@
--- ver. 2.4.1
+-- ver. 2.5
 
 -- SANDEVISTAN
 
@@ -6,8 +6,8 @@
 	if TweakDB:GetRecord("Price.Sandevistan_Iconic") == nil then
 		TweakDB:CloneRecord("Price.Sandevistan_Iconic", "Price.Sandevistan")
 	end
-	TweakDB:SetFlat("Price.Sandevistan_Iconic.value", 15)
-	TweakDB:SetFlat("Price.Sandevistan.value", 6.5)
+	TweakDB:SetFlat("Price.Sandevistan_Iconic.value", 10)
+	TweakDB:SetFlat("Price.Sandevistan.value", 6)
 
 	-- Sandevistan Cooldown Mk.1 / Mk.4
 	TweakDB:SetFlat("Items.SandevistanC1MK1_inline3.value", 10)	-- Zetatech Mk.1
