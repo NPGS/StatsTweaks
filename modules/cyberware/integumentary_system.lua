@@ -1,4 +1,4 @@
--- ver. 2.0
+-- ver. 2.5
 
 -- SUBDERMAL ARMOR
 
@@ -94,12 +94,3 @@
 	TweakDB:SetFlat("BaseStatusEffect.OpticalCamoPlayerBuffLegendary_inline1.value", 20)
 	TweakDB:SetFlat("BaseStatusEffect.OpticalCamoLegendaryCooldown_inline1.value", 30)
 	TweakDB:SetFlat("Items.OpticalCamoLegendary_inline2.intValues", {20, 30})
-
-
--- IMMUNITY CYBERWARE
-
-	-- Rare to Legendary
-	TweakDB:SetFlat("Items.FireproofSkin.quality", "Quality.Legendary")		-- Fireproof Coating
-	TweakDB:SetFlat("Items.GroundingPlating.quality", "Quality.Legendary")	-- Grounding Plating
-	TweakDB:SetFlat("Items.HeatUsingBooster.quality", "Quality.Legendary")	-- Heat Coverter
-	TweakDB:SetFlat("Items.MetalCoveredSkin.quality", "Quality.Legendary")	-- Supra-Dermal Weave

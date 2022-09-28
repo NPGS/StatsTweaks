@@ -1,4 +1,4 @@
--- ver. 2.2
+-- ver. 2.5
 
 -- KERENZIKOV
 
@@ -26,22 +26,6 @@
 	TweakDB:SetFlat("Items.KerenzikovLegendary_inline4.value", 4)	-- duration
 	TweakDB:SetFlat("Items.KerenzikovLegendary_inline6.value", 0.4)	-- player time scale
 	TweakDB:SetFlat("Items.KerenzikovLegendary_inline10.floatValues", {4, 90, 5})	-- uidata
-
-
--- NANORELAYS
-
-	-- Uncommon to Legendary
-	TweakDB:SetFlat("Items.ImprovedReactionUncommon_inline1.value", 4)
-	TweakDB:SetFlat("Items.ImprovedReactionUncommon_inline2.value", 4)
-	TweakDB:SetFlat("Items.ImprovedReactionUncommon_inline3.floatValues", {4.0})
-	TweakDB:SetFlat("Items.ImprovedReactionUncommon_inline4.valueToCheck", 20)
-	TweakDB:SetFlat("Items.ImprovedReactionUncommon.quality", "Quality.Legendary")
-
-	-- Rare
-	TweakDB:SetFlat("Items.ImprovedReactionRare_inline0.valueToCheck", 8)
-
-	-- Epic
-	TweakDB:SetFlat("Items.ImprovedReactionEpic_inline0.valueToCheck", 16)
 
 
 -- NEOFIBER
