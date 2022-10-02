@@ -1,4 +1,4 @@
--- ver. 2.3
+-- ver. 2.5.1
 
 -- BERSERK FIXES
 
@@ -63,22 +63,22 @@
 	end
 
 
-	-- UIDATA COOLDOWN FIX (for Chained Berserk mod equipped)
-	if TweakDB:GetRecord("Items.BerserkBase_inline4") == nil then
-		TweakDB:CloneRecord("Items.BerserkBase_inline4", "Items.SandevistanBase_inline1")
-		TweakDB:SetFlat("Items.BerserkBase_inline4.refStat", "BaseStats.BerserkCooldownReduction")
-		TweakDB:SetFlat("Items.BerserkBase_inline4.statType", "BaseStats.BerserkCooldownBase")
-		TweakDB:SetFlat("Items.BerserkBase_inline4.value", 1)
-		TweakDB:SetFlat("Items.BerserkBase.statModifiers", {"Items.BerserkBase_inline3","Items.BerserkBase_inline4"})
+	-- UIDATA COOLDOWN FIX (for when 'Chained Berserk' mod is equipped)
+	if TweakDB:GetRecord("Items.BerserkBase_cooldown_fix") == nil then
+		TweakDB:CloneRecord("Items.BerserkBase_cooldown_fix", "Items.SandevistanBase_inline1")
+		TweakDB:SetFlat("Items.BerserkBase_cooldown_fix.refStat", "BaseStats.BerserkCooldownReduction")
+		TweakDB:SetFlat("Items.BerserkBase_cooldown_fix.statType", "BaseStats.BerserkCooldownBase")
+		TweakDB:SetFlat("Items.BerserkBase_cooldown_fix.value", 1)
+		TweakDB:SetFlat("Items.BerserkBase.statModifiers", {"Items.BerserkBase_inline3","Items.BerserkBase_cooldown_fix"})
 		TweakDB:SetFlat("BaseStatusEffect.BerserkCooldown_inline0.statModifiers", {"BaseStatusEffect.CyberwareCooldownDuration_inline0","BaseStatusEffect.BerserkCooldown_inline1","BaseStatusEffect.BerserkCooldown_inline2"})
-		arrayInsert("Items.BerserkC1MK2.statModifiers", "Items.BerserkBase_inline4")
-		arrayInsert("Items.BerserkC1MK3.statModifiers", "Items.BerserkBase_inline4")
-		arrayInsert("Items.BerserkC2MK2.statModifiers", "Items.BerserkBase_inline4")
-		arrayInsert("Items.BerserkC2MK3.statModifiers", "Items.BerserkBase_inline4")
-		arrayInsert("Items.BerserkC2MK4.statModifiers", "Items.BerserkBase_inline4")
-		arrayInsert("Items.BerserkC3MK4.statModifiers", "Items.BerserkBase_inline4")
-		arrayInsert("Items.BerserkC3MK5.statModifiers", "Items.BerserkBase_inline4")
-		arrayInsert("Items.BerserkC4MK5.statModifiers", "Items.BerserkBase_inline4")
+		arrayInsert("Items.BerserkC1MK2.statModifiers", "Items.BerserkBase_cooldown_fix")
+		arrayInsert("Items.BerserkC1MK3.statModifiers", "Items.BerserkBase_cooldown_fix")
+		arrayInsert("Items.BerserkC2MK2.statModifiers", "Items.BerserkBase_cooldown_fix")
+		arrayInsert("Items.BerserkC2MK3.statModifiers", "Items.BerserkBase_cooldown_fix")
+		arrayInsert("Items.BerserkC2MK4.statModifiers", "Items.BerserkBase_cooldown_fix")
+		arrayInsert("Items.BerserkC3MK4.statModifiers", "Items.BerserkBase_cooldown_fix")
+		arrayInsert("Items.BerserkC3MK5.statModifiers", "Items.BerserkBase_cooldown_fix")
+		arrayInsert("Items.BerserkC4MK5.statModifiers", "Items.BerserkBase_cooldown_fix")
 	end
 
 
