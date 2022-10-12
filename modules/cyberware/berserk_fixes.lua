@@ -134,7 +134,7 @@
 			-- SET STATS
 			TweakDB:SetFlat("Items.BerserkLowDmgReduction_inline0.effectors", {"Items.BerserkLowDmgReduction_inline1"})
 				TweakDB:SetFlat("Items.BerserkLowDmgReduction_inline1.effectorToApply", "Items.BerserkLowDmgReduction_inline2")
-					TweakDB:SetFlat("Items.BerserkLowDmgReduction_inline2.operationType", mltp)
+					TweakDB:SetFlat("Items.BerserkLowDmgReduction_inline2.operationType", 'Multiply')
 					TweakDB:SetFlat("Items.BerserkLowDmgReduction_inline2.value", 0.85, 'Float')
 			TweakDB:SetFlat("Items.BerserkLowDmgReduction_inline0.UIData", "Items.BerserkLowDmgReduction_inline3")
 				TweakDB:SetFlat("Items.BerserkLowDmgReduction_inline3.intValues", {15})	-- UIDATA
@@ -153,7 +153,7 @@
 			-- SET STATS
 			TweakDB:SetFlat("Items.BerserkMediumDmgReduction_inline0.effectors", {"Items.BerserkMediumDmgReduction_inline1"})
 				TweakDB:SetFlat("Items.BerserkMediumDmgReduction_inline1.effectorToApply", "Items.BerserkMediumDmgReduction_inline2")
-					TweakDB:SetFlat("Items.BerserkMediumDmgReduction_inline2.operationType", mltp)
+					TweakDB:SetFlat("Items.BerserkMediumDmgReduction_inline2.operationType", 'Multiply')
 					TweakDB:SetFlat("Items.BerserkMediumDmgReduction_inline2.value", 0.7, 'Float')
 			TweakDB:SetFlat("Items.BerserkMediumDmgReduction_inline0.UIData", "Items.BerserkMediumDmgReduction_inline3")
 				TweakDB:SetFlat("Items.BerserkMediumDmgReduction_inline3.intValues", {30})	-- UIDATA
@@ -172,7 +172,7 @@
 			-- SET STATS
 			TweakDB:SetFlat("Items.BerserkHighDmgReduction_inline0.effectors", {"Items.BerserkHighDmgReduction_inline1"})
 				TweakDB:SetFlat("Items.BerserkHighDmgReduction_inline1.effectorToApply", "Items.BerserkHighDmgReduction_inline2")
-					TweakDB:SetFlat("Items.BerserkHighDmgReduction_inline2.operationType", mltp)
+					TweakDB:SetFlat("Items.BerserkHighDmgReduction_inline2.operationType", 'Multiply')
 					TweakDB:SetFlat("Items.BerserkHighDmgReduction_inline2.value", 0.55, 'Float')
 			TweakDB:SetFlat("Items.BerserkHighDmgReduction_inline0.UIData", "Items.BerserkHighDmgReduction_inline3")
 				TweakDB:SetFlat("Items.BerserkHighDmgReduction_inline3.intValues", {45})	-- UIDATA

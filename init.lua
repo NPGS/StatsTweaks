@@ -1,11 +1,8 @@
--- ver. 2.5	- LUA MODULES LOADER
+-- ver. 2.5.2	- LUA MODULES LOADER
 
 registerForEvent("onInit", function()
 
 	-- List all modules to load
-
-		-- UTILITIES
-		require("modules/utilities.lua")
 
 		-- CLOTHES MODS
 		require("modules/cloth_mods/all_cloth.lua")
@@ -31,3 +28,9 @@ registerForEvent("onInit", function()
 		require("modules/cw_mods/sandevistan.lua")
 
 end)
+
+function arrayInsert(arr, rec)
+	bakArray = TweakDB:GetFlat(arr)
+	table.insert(bakArray, TweakDBID.new(rec))
+	TweakDB:SetFlat(arr, bakArray)
+end
