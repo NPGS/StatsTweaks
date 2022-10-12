@@ -1,4 +1,9 @@
--- ver. 1.7
+-- ver. 2.5.2
+
+-- PRICE
+
+	TweakDB:SetFlat("Price.PowerfulFabricEnhancer.value", 25)
+
 
 -- EVERY CLOTHES
 
