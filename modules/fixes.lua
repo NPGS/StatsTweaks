@@ -1,4 +1,4 @@
--- ver. 2.5.1
+-- ver. 3.0
 
 -- BERSERK FIXES
 
@@ -179,3 +179,14 @@
 			arrayInsert("Items.BerserkC3MK5.OnEquip", "Items.BerserkHighDmgReduction_inline0")
 			arrayInsert("Items.BerserkC4MK5.OnEquip", "Items.BerserkHighDmgReduction_inline0")
 		end
+
+
+-- NETRUNNER FIXES
+
+	-- COMBAT QUICKHACKS
+
+		-- SPREAD ADJUSTMENT
+		TweakDB:SetFlat("Items.DamageHacksSpreadInitEffector.spreadCount", 3)
+		TweakDB:SetFlat("QuickHack.BaseOverheatHack_inline3.spreadCount", 3)
+		TweakDB:SetFlat("QuickHack.BrainMeltBaseHack_inline3.spreadCount", 3)
+		TweakDB:SetFlat("QuickHack.OverloadBaseHack_inline6.spreadCount", 3)
