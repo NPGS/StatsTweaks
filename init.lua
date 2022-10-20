@@ -15,6 +15,6 @@ end)
 
 function arrayInsert(arr, rec)
 	bakArray = TweakDB:GetFlat(arr)
-	table.insert(bakArray, TweakDBID.new(rec))
+	table.insert(bakArray, rec)
 	TweakDB:SetFlat(arr, bakArray)
 end
