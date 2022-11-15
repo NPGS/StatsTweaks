@@ -1,4 +1,4 @@
--- ver. 3.0.1
+-- ver. 3.0.2
 
 -- BERSERK FIXES
 
@@ -189,13 +189,13 @@
 	TweakDB:SetFlat("QuickHack.BrainMeltBaseHack_inline3.spreadCount", 3)
 	TweakDB:SetFlat("QuickHack.OverloadBaseHack_inline6.spreadCount", 3)
 
-
 	-- NETWATCH NETDRIVER MK5 FIX
 	if TweakDB:GetRecord("Price.Cyberdeck_NetdriverMK5") == nil then
 		TweakDB:CloneRecord("Price.Cyberdeck_NetdriverMK5", "Price.Cyberdeck")
 		TweakDB:SetFlat("Price.Cyberdeck_NetdriverMK5.value", 10)
 		TweakDB:SetFlat("Items.NetwatchNetdriverLegendaryMKV_inline2.value", 12)	-- RAM
 		TweakDB:SetFlat("Items.NetwatchNetdriverLegendaryMKV_inline3.value", 10)	-- BUFFER
+		TweakDB:SetFlat("Items.NetwatchNetdriverLegendaryMKV.blueprint", "Items.CyberdeckBlueprint7Slots")
 		TweakDB:SetFlat("Items.NetwatchNetdriverLegendaryMKV.buyPrice", {"Price.BasePrice","Price.BuyMultiplier","Price.Cyberware","Price.CyberwareQualityMultiplier","Price.IconicMultiplier","Price.Cyberdeck_NetdriverMK5"})
 		TweakDB:SetFlat("Items.NetwatchNetdriverLegendaryMKV.OnEquip", {"Items.BaseDeck_inline0","Items.BaseDeck_inline3","Items.NetwatchNetdriverLegendaryMKV_inline1","Items.DamageHacksAreaAbility","Items.QuickHackDamageAbility03","Items.MemoryRegenAbility03","Items.SpreadingRangeAbility03","Items.NPCUploadTimeAbility02"})
 		TweakDB:SetFlat("Items.NetwatchNetdriverLegendaryMKV.sellPrice", {"Price.BasePrice","Price.CyberwareSellMultiplier","Price.Cyberware","Price.CyberwareQualityMultiplier","Price.CraftingTraitMultiplier","Price.IconicMultiplier","Price.Cyberdeck_NetdriverMK5"})
