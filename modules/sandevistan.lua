@@ -1,4 +1,4 @@
--- ver. 2.5
+-- ver. 3.0.4
 
 -- SANDEVISTAN
 
@@ -17,7 +17,7 @@
 	TweakDB:SetFlat("Items.SandevistanC2MK2_inline3.value", 15)	-- Dynalar Mk.2
 	TweakDB:SetFlat("Items.SandevistanC2MK4_inline3.value", 20)	-- Dynalar Mk.4
 
-	-- Sandevistan "Warp Dancer" Qiant Mk.5
+	-- Qiant "Warp Dancer" Sandevistan Mk.5
 	TweakDB:SetFlat("Items.SandevistanC3MK5_inline3.value", 15)			-- cooldown
 	TweakDB:SetFlat("Items.SandevistanC3MK5_inline8.value", 1.2)		-- damage
 	TweakDB:SetFlat("Items.SandevistanC3MK5_inline9.intValues", {20})	-- damage UI
@@ -27,7 +27,7 @@
 	TweakDB:SetFlat("Items.SandevistanC3MK5.buyPrice", {"Price.BasePrice","Price.BuyMultiplier","Price.Cyberware","Price.CyberwareQualityMultiplier","Price.IconicMultiplier","Price.Sandevistan_Iconic"})
 	TweakDB:SetFlat("Items.SandevistanC3MK5.sellPrice", {"Price.BasePrice","Price.CyberwareSellMultiplier","Price.Cyberware","Price.CyberwareQualityMultiplier","Price.CraftingTraitMultiplier","Price.IconicMultiplier","Price.Sandevistan_Iconic"})
 
-	-- Sandevistan "Falcon" Militech Mk.5
+	-- Militech "Falcon" Sandevistan Mk.5
 	TweakDB:SetFlat("Items.SandevistanC4MK5_inline0.valueToCheck", 18)		-- prerequisite
 	TweakDB:SetFlat("Items.SandevistanC4MK5_inline3.value", 20)		-- cooldown
 	TweakDB:SetFlat("Items.SandevistanC4MK5_inline8.value", 1.2)	-- damage
