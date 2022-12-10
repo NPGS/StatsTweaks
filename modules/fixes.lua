@@ -85,7 +85,9 @@
 	end
 
 
-	-- STRENGTH INCREASES CARRY CAPACITY
+-- BERSERK MK.1 / MK.5 ADDITIONAL TWEAKS
+
+	-- CARRY CAPACITY
 
 		-- MINIMUM CAPACITY Mk.1 / Mk.2
 		if TweakDB:GetRecord("Items.BerserkCarryCapacity01") == nil then
@@ -158,9 +160,9 @@
 		end
 
 
-	-- ADD DAMAGE REDUCTION
+	-- DAMAGE REDUCTION
 
-		-- MIN REDUCTION Mk.1 / Mk.2
+		-- MINIMUM REDUCTION Mk.1 / Mk.2
 		if TweakDB:GetRecord("Items.BerserkDmgReduction01") == nil then
 			TweakDB:CreateRecord("Items.BerserkDmgReduction01", "gamedataGameplayLogicPackage_Record")	-- LOGIC PACKAGE
 				TweakDB:CloneRecord("Items.BerserkDmgReduction01_inline0", "Items.BerserkC4MK5_inline9")	-- EFFECTOR EFFECTOR
@@ -235,7 +237,7 @@
 	TweakDB:SetFlat("QuickHack.BrainMeltBaseHack_inline3.spreadCount", 3)
 	TweakDB:SetFlat("QuickHack.OverloadBaseHack_inline6.spreadCount", 3)
 
-	-- NETWATCH NETDRIVER MK5 FIX
+	-- NETWATCH NETDRIVER MK5 TWEAK
 	if TweakDB:GetRecord("Price.Cyberdeck_NetdriverMK5") == nil then
 		TweakDB:CloneRecord("Price.Cyberdeck_NetdriverMK5", "Price.Cyberdeck")
 		TweakDB:SetFlat("Price.Cyberdeck_NetdriverMK5.value", 10)
