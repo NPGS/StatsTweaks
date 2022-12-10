@@ -44,6 +44,9 @@
 	TweakDB:SetFlat("Items.BerserkC2MK4_inline6.value", 30)	-- cooldown
 
 	-- Zetatech Berserk Mk.4
+	TweakDB:SetFlat("Items.BerserkC3MK4_inline1.value", 20)	-- recoil
+	TweakDB:SetFlat("Items.BerserkC3MK4_inline2.value", 20)	-- sway
+	TweakDB:SetFlat("Items.BerserkC3MK4_inline3.value", 20)	-- melee dmg
 	TweakDB:SetFlat("Items.BerserkC3MK4_inline4.value", 30)	-- armor / resistances
 	TweakDB:SetFlat("Items.BerserkC3MK4_inline5.value", 30)	-- duration
 	TweakDB:SetFlat("Items.BerserkC3MK4_inline6.value", 30)	-- cooldown
