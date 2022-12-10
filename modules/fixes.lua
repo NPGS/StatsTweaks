@@ -15,39 +15,39 @@
 		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_inline26.refObject", "Player")
 
 		-- ADD RESISTANCES TO BERSERKS Mk.1 / Mk.2
-		if TweakDB:GetRecord("Items.Berserk_MinResistance") == nil then
-			TweakDB:CreateRecord("Items.Berserk_MinResistance", "gamedataConstantStatModifier_Record")
-			TweakDB:SetFlat("Items.Berserk_MinResistance.modifierType", "Additive")
-			TweakDB:SetFlat("Items.Berserk_MinResistance.statType", "BaseStats.BerserkResistancesBonus")
-			TweakDB:SetFlat("Items.Berserk_MinResistance.value", 10)
-			arrayInsert("Items.BerserkC1MK1.statModifiers", "Items.Berserk_MinResistance")
-			arrayInsert("Items.BerserkC1MK2.statModifiers", "Items.Berserk_MinResistance")
-			arrayInsert("Items.BerserkC2MK1.statModifiers", "Items.Berserk_MinResistance")
-			arrayInsert("Items.BerserkC2MK2.statModifiers", "Items.Berserk_MinResistance")
+		if TweakDB:GetRecord("Items.BerserkResistances01") == nil then
+			TweakDB:CreateRecord("Items.BerserkResistances01", "gamedataConstantStatModifier_Record")
+			TweakDB:SetFlat("Items.BerserkResistances01.modifierType", "Additive")
+			TweakDB:SetFlat("Items.BerserkResistances01.statType", "BaseStats.BerserkResistancesBonus")
+			TweakDB:SetFlat("Items.BerserkResistances01.value", 10)
+			arrayInsert("Items.BerserkC1MK1.statModifiers", "Items.BerserkResistances01")
+			arrayInsert("Items.BerserkC1MK2.statModifiers", "Items.BerserkResistances01")
+			arrayInsert("Items.BerserkC2MK1.statModifiers", "Items.BerserkResistances01")
+			arrayInsert("Items.BerserkC2MK2.statModifiers", "Items.BerserkResistances01")
 		end
 
 		-- ADD RESISTANCES TO BERSERKS Mk.3
-		if TweakDB:GetRecord("Items.Berserk_LowResistance") == nil then
-			TweakDB:CloneRecord("Items.Berserk_LowResistance", "Items.Berserk_MinResistance")
-			TweakDB:SetFlat("Items.Berserk_LowResistance.value", 20)
-			arrayInsert("Items.BerserkC1MK3.statModifiers", "Items.Berserk_LowResistance")
-			arrayInsert("Items.BerserkC2MK3.statModifiers", "Items.Berserk_LowResistance")
+		if TweakDB:GetRecord("Items.BerserkResistances02") == nil then
+			TweakDB:CloneRecord("Items.BerserkResistances02", "Items.BerserkResistances01")
+			TweakDB:SetFlat("Items.BerserkResistances02.value", 20)
+			arrayInsert("Items.BerserkC1MK3.statModifiers", "Items.BerserkResistances02")
+			arrayInsert("Items.BerserkC2MK3.statModifiers", "Items.BerserkResistances02")
 		end
 
 		-- ADD RESISTANCES TO BERSERKS Mk.4
-		if TweakDB:GetRecord("Items.Berserk_AvgResistance") == nil then
-			TweakDB:CloneRecord("Items.Berserk_AvgResistance", "Items.Berserk_MinResistance")
-			TweakDB:SetFlat("Items.Berserk_AvgResistance.value", 30)
-			arrayInsert("Items.BerserkC2MK4.statModifiers", "Items.Berserk_AvgResistance")
-			arrayInsert("Items.BerserkC3MK4.statModifiers", "Items.Berserk_AvgResistance")
+		if TweakDB:GetRecord("Items.BerserkResistances03") == nil then
+			TweakDB:CloneRecord("Items.BerserkResistances03", "Items.BerserkResistances01")
+			TweakDB:SetFlat("Items.BerserkResistances03.value", 30)
+			arrayInsert("Items.BerserkC2MK4.statModifiers", "Items.BerserkResistances03")
+			arrayInsert("Items.BerserkC3MK4.statModifiers", "Items.BerserkResistances03")
 		end
 
 		-- ADD RESISTANCES TO BERSERKS Mk.5
-		if TweakDB:GetRecord("Items.Berserk_HighResistance") == nil then
-			TweakDB:CloneRecord("Items.Berserk_HighResistance", "Items.Berserk_MinResistance")
-			TweakDB:SetFlat("Items.Berserk_HighResistance.value", 40)
-			arrayInsert("Items.BerserkC3MK5.statModifiers", "Items.Berserk_HighResistance")
-			arrayInsert("Items.BerserkC4MK5.statModifiers", "Items.Berserk_HighResistance")
+		if TweakDB:GetRecord("Items.BerserkResistances04") == nil then
+			TweakDB:CloneRecord("Items.BerserkResistances04", "Items.BerserkResistances01")
+			TweakDB:SetFlat("Items.BerserkResistances04.value", 40)
+			arrayInsert("Items.BerserkC3MK5.statModifiers", "Items.BerserkResistances04")
+			arrayInsert("Items.BerserkC4MK5.statModifiers", "Items.BerserkResistances04")
 		end
 
 
