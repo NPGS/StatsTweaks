@@ -1,4 +1,4 @@
--- ver. 3.0.4
+-- ver. 3.0.5
 
 -- BERSERK FIXES
 
@@ -62,6 +62,10 @@
 		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_melee_dmg.value", 0.01)
 		arrayInsert("BaseStatusEffect.BerserkPlayerBuff_inline19.statModifiers", "BaseStatusEffect.BerserkPlayerBuff_melee_dmg")
 	end
+
+
+	-- SUPERHERO FALL POV ROTATION
+	TweakDB:SetFlat("PlayerLocomotion.player_locomotion_data_SuperheroFall_inline10.value", 1)
 
 
 	-- UIDATA COOLDOWN FIX (for when 'Chained Berserk' mod is equipped)

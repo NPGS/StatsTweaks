@@ -1,4 +1,4 @@
--- ver. 3.0.4	- LUA MODULES LOADER
+-- ver. 3.0.5	- LUA MODULES LOADER
 
 registerForEvent("onInit", function()
 	require("modules/fixes.lua")
