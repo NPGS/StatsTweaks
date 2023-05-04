@@ -1,4 +1,4 @@
--- ver. 3.0.5
+-- ver. 3.0.6
 
 -- BERSERK FIXES
 
@@ -14,53 +14,47 @@
 		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_inline25.refObject", "Player")
 		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_inline26.refObject", "Player")
 
-		-- ADD RESISTANCES TO BERSERKS Mk.1 / Mk.2
-		if TweakDB:GetRecord("Items.BerserkResistances01") == nil then
-			TweakDB:CreateRecord("Items.BerserkResistances01", "gamedataConstantStatModifier_Record")
-			TweakDB:SetFlat("Items.BerserkResistances01.modifierType", "Additive")
-			TweakDB:SetFlat("Items.BerserkResistances01.statType", "BaseStats.BerserkResistancesBonus")
-			TweakDB:SetFlat("Items.BerserkResistances01.value", 10)
-			arrayInsert("Items.BerserkC1MK1.statModifiers", "Items.BerserkResistances01")
-			arrayInsert("Items.BerserkC1MK2.statModifiers", "Items.BerserkResistances01")
-			arrayInsert("Items.BerserkC2MK1.statModifiers", "Items.BerserkResistances01")
-			arrayInsert("Items.BerserkC2MK2.statModifiers", "Items.BerserkResistances01")
-		end
+		-- STAT MODIFIERS ARRAY
+		berserks12 = {
+			"Items.BerserkC1MK1.statModifiers",
+			"Items.BerserkC1MK2.statModifiers",
+			"Items.BerserkC2MK1.statModifiers",
+			"Items.BerserkC2MK2.statModifiers",
+		}
 
-		-- ADD RESISTANCES TO BERSERKS Mk.3
-		if TweakDB:GetRecord("Items.BerserkResistances02") == nil then
-			TweakDB:CloneRecord("Items.BerserkResistances02", "Items.BerserkResistances01")
-			TweakDB:SetFlat("Items.BerserkResistances02.value", 20)
-			arrayInsert("Items.BerserkC1MK3.statModifiers", "Items.BerserkResistances02")
-			arrayInsert("Items.BerserkC2MK3.statModifiers", "Items.BerserkResistances02")
-		end
+		berserks3 = {
+			"Items.BerserkC1MK3.statModifiers",
+			"Items.BerserkC2MK3.statModifiers",
+		}
 
-		-- ADD RESISTANCES TO BERSERKS Mk.4
-		if TweakDB:GetRecord("Items.BerserkResistances03") == nil then
-			TweakDB:CloneRecord("Items.BerserkResistances03", "Items.BerserkResistances01")
-			TweakDB:SetFlat("Items.BerserkResistances03.value", 30)
-			arrayInsert("Items.BerserkC2MK4.statModifiers", "Items.BerserkResistances03")
-			arrayInsert("Items.BerserkC3MK4.statModifiers", "Items.BerserkResistances03")
-		end
+		berserks4 = {
+			"Items.BerserkC2MK4.statModifiers",
+			"Items.BerserkC3MK4.statModifiers",
+		}
 
-		-- ADD RESISTANCES TO BERSERKS Mk.5
-		if TweakDB:GetRecord("Items.BerserkResistances04") == nil then
-			TweakDB:CloneRecord("Items.BerserkResistances04", "Items.BerserkResistances01")
-			TweakDB:SetFlat("Items.BerserkResistances04.value", 40)
-			arrayInsert("Items.BerserkC3MK5.statModifiers", "Items.BerserkResistances04")
-			arrayInsert("Items.BerserkC4MK5.statModifiers", "Items.BerserkResistances04")
-		end
+		berserks5 = {
+			"Items.BerserkC3MK5.statModifiers",
+			"Items.BerserkC4MK5.statModifiers",
+		}
+
+		-- RESISTANCES VARIABLES NAMES
+		berserkResistances01 = "Items.BerserkResistances01"
+		berserkResistances02 = "Items.BerserkResistances02"
+		berserkResistances03 = "Items.BerserkResistances03"
+		berserkResistances04 = "Items.BerserkResistances04"
+
+		-- CREATE AND ADD RESISTANCES FROM BERSERKS Mk.1 TO Mk.5
+		Ti200.createAndAssociateStatToArray(berserkResistances01, "Additive", "BaseStats.BerserkResistancesBonus", 10, berserks12)
+		Ti200.createAndAssociateStatToArray(berserkResistances02, "Additive", "BaseStats.BerserkResistancesBonus", 20, berserks3)
+		Ti200.createAndAssociateStatToArray(berserkResistances03, "Additive", "BaseStats.BerserkResistancesBonus", 30, berserks4)
+		Ti200.createAndAssociateStatToArray(berserkResistances04, "Additive", "BaseStats.BerserkResistancesBonus", 40, berserks5)
 
 
 	-- MELEE DAMAGE DMG ADD
+	berserkMeleeBuff = "BaseStatusEffect.BerserkPlayerBuff_melee_dmg"
 	if TweakDB:GetRecord("BaseStatusEffect.BerserkPlayerBuff_melee_dmg") == nil then
-		TweakDB:CreateRecord("BaseStatusEffect.BerserkPlayerBuff_melee_dmg", "gamedataCombinedStatModifier_Record")
-		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_melee_dmg.modifierType", "AdditiveMultiplier")
-		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_melee_dmg.opSymbol", "*")
-		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_melee_dmg.refObject", "Player")
-		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_melee_dmg.refStat", "BaseStats.BerserkMeleeDamageBonus")
-		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_melee_dmg.statType", "BaseStats.EffectiveDPS")
-		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_melee_dmg.value", 0.01)
-		arrayInsert("BaseStatusEffect.BerserkPlayerBuff_inline19.statModifiers", "BaseStatusEffect.BerserkPlayerBuff_melee_dmg")
+		Ti200.createCombinedStat(berserkMeleeBuff, "AdditiveMultiplier", "*", "Player", "BaseStats.BerserkMeleeDamageBonus", "BaseStats.EffectiveDPS", 0.01)
+		Ti200.arrayInsert("BaseStatusEffect.BerserkPlayerBuff_inline19.statModifiers", berserkMeleeBuff)
 	end
 
 
@@ -69,23 +63,15 @@
 
 
 	-- UIDATA COOLDOWN FIX (for when 'Chained Berserk' mod is equipped)
+	cooldownFix = "Items.BerserkBase_cooldown_fix"
 	if TweakDB:GetRecord("Items.BerserkBase_cooldown_fix") == nil then
-		TweakDB:CloneRecord("Items.BerserkBase_cooldown_fix", "Items.SandevistanBase_inline1")
-		TweakDB:SetFlat("Items.BerserkBase_cooldown_fix.refStat", "BaseStats.BerserkCooldownReduction")
-		TweakDB:SetFlat("Items.BerserkBase_cooldown_fix.statType", "BaseStats.BerserkCooldownBase")
-		TweakDB:SetFlat("Items.BerserkBase_cooldown_fix.value", 1)
+		Ti200.createCombinedStat(cooldownFix, "Additive", "*", "Self", "BaseStats.BerserkCooldownReduction", "BaseStats.BerserkCooldownBase", 1)
 		TweakDB:SetFlat("Items.BerserkBase.statModifiers", {"Items.BerserkBase_inline3","Items.BerserkBase_cooldown_fix"})
 		TweakDB:SetFlat("BaseStatusEffect.BerserkCooldown_inline0.statModifiers", {"BaseStatusEffect.CyberwareCooldownDuration_inline0","BaseStatusEffect.BerserkCooldown_inline1","BaseStatusEffect.BerserkCooldown_inline2"})
-		arrayInsert("Items.BerserkC1MK1.statModifiers", "Items.BerserkBase_cooldown_fix")
-		arrayInsert("Items.BerserkC1MK2.statModifiers", "Items.BerserkBase_cooldown_fix")
-		arrayInsert("Items.BerserkC1MK3.statModifiers", "Items.BerserkBase_cooldown_fix")
-		arrayInsert("Items.BerserkC2MK1.statModifiers", "Items.BerserkBase_cooldown_fix")
-		arrayInsert("Items.BerserkC2MK2.statModifiers", "Items.BerserkBase_cooldown_fix")
-		arrayInsert("Items.BerserkC2MK3.statModifiers", "Items.BerserkBase_cooldown_fix")
-		arrayInsert("Items.BerserkC2MK4.statModifiers", "Items.BerserkBase_cooldown_fix")
-		arrayInsert("Items.BerserkC3MK4.statModifiers", "Items.BerserkBase_cooldown_fix")
-		arrayInsert("Items.BerserkC3MK5.statModifiers", "Items.BerserkBase_cooldown_fix")
-		arrayInsert("Items.BerserkC4MK5.statModifiers", "Items.BerserkBase_cooldown_fix")
+		Ti200.associateRecordToArray(berserks12, cooldownFix)
+		Ti200.associateRecordToArray(berserks3, cooldownFix)
+		Ti200.associateRecordToArray(berserks4, cooldownFix)
+		Ti200.associateRecordToArray(berserks5, cooldownFix)
 	end
 
 
@@ -106,10 +92,10 @@
 						TweakDB:SetFlat("Items.BerserkCarryCapacity01_inline2.value", 0.1)
 			TweakDB:SetFlat("Items.BerserkCarryCapacity01.UIData", "Items.BerserkCarryCapacity01_inline3")
 				TweakDB:SetFlat("Items.BerserkCarryCapacity01_inline3.intValues", {10})
-			arrayInsert("Items.BerserkC1MK1.OnEquip", "Items.BerserkCarryCapacity01")
-			arrayInsert("Items.BerserkC1MK2.OnEquip", "Items.BerserkCarryCapacity01")
-			arrayInsert("Items.BerserkC2MK1.OnEquip", "Items.BerserkCarryCapacity01")
-			arrayInsert("Items.BerserkC2MK2.OnEquip", "Items.BerserkCarryCapacity01")
+			Ti200.arrayInsert("Items.BerserkC1MK1.OnEquip", "Items.BerserkCarryCapacity01")
+			Ti200.arrayInsert("Items.BerserkC1MK2.OnEquip", "Items.BerserkCarryCapacity01")
+			Ti200.arrayInsert("Items.BerserkC2MK1.OnEquip", "Items.BerserkCarryCapacity01")
+			Ti200.arrayInsert("Items.BerserkC2MK2.OnEquip", "Items.BerserkCarryCapacity01")
 		end
 
 		-- LOW CAPACITY Mk.3
@@ -125,8 +111,8 @@
 						TweakDB:SetFlat("Items.BerserkCarryCapacity02_inline2.value", 0.2)
 			TweakDB:SetFlat("Items.BerserkCarryCapacity02.UIData", "Items.BerserkCarryCapacity02_inline3")
 				TweakDB:SetFlat("Items.BerserkCarryCapacity02_inline3.intValues", {20})
-			arrayInsert("Items.BerserkC1MK3.OnEquip", "Items.BerserkCarryCapacity02")
-			arrayInsert("Items.BerserkC2MK3.OnEquip", "Items.BerserkCarryCapacity02")
+			Ti200.arrayInsert("Items.BerserkC1MK3.OnEquip", "Items.BerserkCarryCapacity02")
+			Ti200.arrayInsert("Items.BerserkC2MK3.OnEquip", "Items.BerserkCarryCapacity02")
 		end
 
 		-- MEDIUM CAPACITY Mk.4
@@ -142,8 +128,8 @@
 						TweakDB:SetFlat("Items.BerserkCarryCapacity03_inline2.value", 0.3)
 			TweakDB:SetFlat("Items.BerserkCarryCapacity03.UIData", "Items.BerserkCarryCapacity03_inline3")
 				TweakDB:SetFlat("Items.BerserkCarryCapacity03_inline3.intValues", {30})
-			arrayInsert("Items.BerserkC2MK4.OnEquip", "Items.BerserkCarryCapacity03")
-			arrayInsert("Items.BerserkC3MK4.OnEquip", "Items.BerserkCarryCapacity03")
+			Ti200.arrayInsert("Items.BerserkC2MK4.OnEquip", "Items.BerserkCarryCapacity03")
+			Ti200.arrayInsert("Items.BerserkC3MK4.OnEquip", "Items.BerserkCarryCapacity03")
 		end
 
 		-- HIGH CAPACITY Mk.5
@@ -159,8 +145,8 @@
 						TweakDB:SetFlat("Items.BerserkCarryCapacity04_inline2.value", 0.4)
 			TweakDB:SetFlat("Items.BerserkCarryCapacity04.UIData", "Items.BerserkCarryCapacity04_inline3")
 				TweakDB:SetFlat("Items.BerserkCarryCapacity04_inline3.intValues", {40})
-			arrayInsert("Items.BerserkC3MK5.OnEquip", "Items.BerserkCarryCapacity04")
-			arrayInsert("Items.BerserkC4MK5.OnEquip", "Items.BerserkCarryCapacity04")
+			Ti200.arrayInsert("Items.BerserkC3MK5.OnEquip", "Items.BerserkCarryCapacity04")
+			Ti200.arrayInsert("Items.BerserkC4MK5.OnEquip", "Items.BerserkCarryCapacity04")
 		end
 
 
@@ -178,10 +164,10 @@
 					TweakDB:SetFlat("Items.BerserkDmgReduction01_inline1.value", 0.9, 'Float')
 			TweakDB:SetFlat("Items.BerserkDmgReduction01.UIData", "Items.BerserkDmgReduction01_inline2")
 				TweakDB:SetFlat("Items.BerserkDmgReduction01_inline2.intValues", {10})	-- UIDATA
-			arrayInsert("Items.BerserkC1MK1.OnEquip", "Items.BerserkDmgReduction01")
-			arrayInsert("Items.BerserkC1MK2.OnEquip", "Items.BerserkDmgReduction01")
-			arrayInsert("Items.BerserkC2MK1.OnEquip", "Items.BerserkDmgReduction01")
-			arrayInsert("Items.BerserkC2MK2.OnEquip", "Items.BerserkDmgReduction01")
+			Ti200.arrayInsert("Items.BerserkC1MK1.OnEquip", "Items.BerserkDmgReduction01")
+			Ti200.arrayInsert("Items.BerserkC1MK2.OnEquip", "Items.BerserkDmgReduction01")
+			Ti200.arrayInsert("Items.BerserkC2MK1.OnEquip", "Items.BerserkDmgReduction01")
+			Ti200.arrayInsert("Items.BerserkC2MK2.OnEquip", "Items.BerserkDmgReduction01")
 		end
 
 		-- LOW REDUCTION Mk.3
@@ -196,8 +182,8 @@
 					TweakDB:SetFlat("Items.BerserkDmgReduction02_inline1.value", 0.8, 'Float')
 			TweakDB:SetFlat("Items.BerserkDmgReduction02.UIData", "Items.BerserkDmgReduction02_inline2")
 				TweakDB:SetFlat("Items.BerserkDmgReduction02_inline2.intValues", {20})	-- UIDATA
-			arrayInsert("Items.BerserkC1MK3.OnEquip", "Items.BerserkDmgReduction02")
-			arrayInsert("Items.BerserkC2MK3.OnEquip", "Items.BerserkDmgReduction02")
+			Ti200.arrayInsert("Items.BerserkC1MK3.OnEquip", "Items.BerserkDmgReduction02")
+			Ti200.arrayInsert("Items.BerserkC2MK3.OnEquip", "Items.BerserkDmgReduction02")
 		end
 
 		-- MEDIUM REDUCTION Mk.4
@@ -212,8 +198,8 @@
 					TweakDB:SetFlat("Items.BerserkDmgReduction03_inline1.value", 0.7, 'Float')
 			TweakDB:SetFlat("Items.BerserkDmgReduction03.UIData", "Items.BerserkDmgReduction03_inline2")
 				TweakDB:SetFlat("Items.BerserkDmgReduction03_inline2.intValues", {30})	-- UIDATA
-			arrayInsert("Items.BerserkC2MK4.OnEquip", "Items.BerserkDmgReduction03")
-			arrayInsert("Items.BerserkC3MK4.OnEquip", "Items.BerserkDmgReduction03")
+			Ti200.arrayInsert("Items.BerserkC2MK4.OnEquip", "Items.BerserkDmgReduction03")
+			Ti200.arrayInsert("Items.BerserkC3MK4.OnEquip", "Items.BerserkDmgReduction03")
 		end
 
 		-- HIGH REDUCTION Mk.5
@@ -228,8 +214,8 @@
 					TweakDB:SetFlat("Items.BerserkDmgReduction04_inline1.value", 0.6, 'Float')
 			TweakDB:SetFlat("Items.BerserkDmgReduction04.UIData", "Items.BerserkDmgReduction04_inline2")
 				TweakDB:SetFlat("Items.BerserkDmgReduction04_inline2.intValues", {40})	-- UIDATA
-			arrayInsert("Items.BerserkC3MK5.OnEquip", "Items.BerserkDmgReduction04")
-			arrayInsert("Items.BerserkC4MK5.OnEquip", "Items.BerserkDmgReduction04")
+			Ti200.arrayInsert("Items.BerserkC3MK5.OnEquip", "Items.BerserkDmgReduction04")
+			Ti200.arrayInsert("Items.BerserkC4MK5.OnEquip", "Items.BerserkDmgReduction04")
 		end
 
 

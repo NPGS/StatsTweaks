@@ -1,7 +1,10 @@
--- ver. 3.0.5	- LUA MODULES LOADER
+-- ver. 3.0.6	- LUA MODULES LOADER
+
+Ti200 = require("./utils.lua")	-- import functions
 
 registerForEvent("onInit", function()
 	require("modules/fixes.lua")
+	require("modules/blueprints.lua")
 	require("modules/berserk.lua")
 	require("modules/circulatory_system.lua")
 	require("modules/frontal_cortex.lua")
@@ -12,9 +15,3 @@ registerForEvent("onInit", function()
 	require("modules/sandevistan.lua")
 	require("modules/skeleton.lua")
 end)
-
-function arrayInsert(arr, rec)
-	bakArray = TweakDB:GetFlat(arr)
-	table.insert(bakArray, rec)
-	TweakDB:SetFlat(arr, bakArray)
-end

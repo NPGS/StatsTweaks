@@ -1,4 +1,4 @@
--- ver. 3.0.4
+-- ver. 3.0.6
 
 -- SANDEVISTAN
 
@@ -24,6 +24,7 @@
 	TweakDB:SetFlat("Items.SandevistanC3MK5_inline14.value", 20)		-- crit chance
 	TweakDB:SetFlat("Items.SandevistanC3MK5_inline15.value", 40)		-- crit damage
 	TweakDB:SetFlat("Items.SandevistanC3MK5_inline16.intValues", {20, 40})	-- crit UI
+	TweakDB:SetFlat("Items.SandevistanC3MK5.blueprint", sandevistanBlueprintMK5)	-- blueprint
 	TweakDB:SetFlat("Items.SandevistanC3MK5.buyPrice", {"Price.BasePrice","Price.BuyMultiplier","Price.Cyberware","Price.CyberwareQualityMultiplier","Price.IconicMultiplier","Price.Sandevistan_Iconic"})
 	TweakDB:SetFlat("Items.SandevistanC3MK5.sellPrice", {"Price.BasePrice","Price.CyberwareSellMultiplier","Price.Cyberware","Price.CyberwareQualityMultiplier","Price.CraftingTraitMultiplier","Price.IconicMultiplier","Price.Sandevistan_Iconic"})
 
@@ -32,5 +33,6 @@
 	TweakDB:SetFlat("Items.SandevistanC4MK5_inline3.value", 20)		-- cooldown
 	TweakDB:SetFlat("Items.SandevistanC4MK5_inline8.value", 1.2)	-- damage
 	TweakDB:SetFlat("Items.SandevistanC4MK5_inline9.intValues", {20})	-- damage UI
+	TweakDB:SetFlat("Items.SandevistanC4MK5.blueprint", sandevistanBlueprintMK5)	-- blueprint
 	TweakDB:SetFlat("Items.SandevistanC4MK5.buyPrice", {"Price.BasePrice","Price.BuyMultiplier","Price.Cyberware","Price.CyberwareQualityMultiplier","Price.IconicMultiplier","Price.Sandevistan_Iconic"})
 	TweakDB:SetFlat("Items.SandevistanC4MK5.sellPrice", {"Price.BasePrice","Price.CyberwareSellMultiplier","Price.Cyberware","Price.CyberwareQualityMultiplier","Price.CraftingTraitMultiplier","Price.IconicMultiplier","Price.Sandevistan_Iconic"})
