@@ -52,7 +52,7 @@
 
 	-- MELEE DAMAGE DMG ADD
 	berserkMeleeBuff = "BaseStatusEffect.BerserkPlayerBuff_melee_dmg"
-	if TweakDB:GetRecord("BaseStatusEffect.BerserkPlayerBuff_melee_dmg") == nil then
+	if TweakDB:GetRecord(berserkMeleeBuff) == nil then
 		Ti200.createCombinedStat(berserkMeleeBuff, "AdditiveMultiplier", "*", "Player", "BaseStats.BerserkMeleeDamageBonus", "BaseStats.EffectiveDPS", 0.01)
 		Ti200.arrayInsert("BaseStatusEffect.BerserkPlayerBuff_inline19.statModifiers", berserkMeleeBuff)
 	end
@@ -64,9 +64,9 @@
 
 	-- UIDATA COOLDOWN FIX (for when 'Chained Berserk' mod is equipped)
 	cooldownFix = "Items.BerserkBase_cooldown_fix"
-	if TweakDB:GetRecord("Items.BerserkBase_cooldown_fix") == nil then
+	if TweakDB:GetRecord(cooldownFix) == nil then
 		Ti200.createCombinedStat(cooldownFix, "Additive", "*", "Self", "BaseStats.BerserkCooldownReduction", "BaseStats.BerserkCooldownBase", 1)
-		TweakDB:SetFlat("Items.BerserkBase.statModifiers", {"Items.BerserkBase_inline3","Items.BerserkBase_cooldown_fix"})
+		TweakDB:SetFlat("Items.BerserkBase.statModifiers", {"Items.BerserkBase_inline3", cooldownFix})
 		TweakDB:SetFlat("BaseStatusEffect.BerserkCooldown_inline0.statModifiers", {"BaseStatusEffect.CyberwareCooldownDuration_inline0","BaseStatusEffect.BerserkCooldown_inline1","BaseStatusEffect.BerserkCooldown_inline2"})
 		Ti200.associateRecordToArray(berserks12, cooldownFix)
 		Ti200.associateRecordToArray(berserks3, cooldownFix)
