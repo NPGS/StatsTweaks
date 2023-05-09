@@ -14,34 +14,34 @@
 		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_inline25.refObject", "Player")
 		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_inline26.refObject", "Player")
 
-		-- STAT MODIFIERS ARRAY
-		berserks12 = {
+		-- STAT MODIFIERS TABLES
+		local berserks12 = {
 			"Items.BerserkC1MK1.statModifiers",
 			"Items.BerserkC1MK2.statModifiers",
 			"Items.BerserkC2MK1.statModifiers",
 			"Items.BerserkC2MK2.statModifiers",
 		}
 
-		berserks3 = {
+		local berserks3 = {
 			"Items.BerserkC1MK3.statModifiers",
 			"Items.BerserkC2MK3.statModifiers",
 		}
 
-		berserks4 = {
+		local berserks4 = {
 			"Items.BerserkC2MK4.statModifiers",
 			"Items.BerserkC3MK4.statModifiers",
 		}
 
-		berserks5 = {
+		local berserks5 = {
 			"Items.BerserkC3MK5.statModifiers",
 			"Items.BerserkC4MK5.statModifiers",
 		}
 
 		-- RESISTANCES VARIABLES NAMES
-		berserkResistances01 = "Items.BerserkResistances01"
-		berserkResistances02 = "Items.BerserkResistances02"
-		berserkResistances03 = "Items.BerserkResistances03"
-		berserkResistances04 = "Items.BerserkResistances04"
+		local berserkResistances01 = "Items.BerserkResistances01"
+		local berserkResistances02 = "Items.BerserkResistances02"
+		local berserkResistances03 = "Items.BerserkResistances03"
+		local berserkResistances04 = "Items.BerserkResistances04"
 
 		-- CREATE AND ADD RESISTANCES FROM BERSERKS Mk.1 TO Mk.5
 		Ti200.createAndAssociateStatToArray(berserkResistances01, "Additive", "BaseStats.BerserkResistancesBonus", 10, berserks12)
@@ -77,145 +77,105 @@
 
 -- BERSERK MK.1 / MK.5 ADDITIONAL TWEAKS
 
+	-- EQUIP TABLES
+
+		local berserkEquip12 = {
+			"Items.BerserkC1MK1.OnEquip",
+			"Items.BerserkC1MK2.OnEquip",
+			"Items.BerserkC2MK1.OnEquip",
+			"Items.BerserkC2MK2.OnEquip",
+		}
+
+		local berserkEquip3 = {
+			"Items.BerserkC1MK3.OnEquip",
+			"Items.BerserkC2MK3.OnEquip",
+		}
+
+		local berserkEquip4 = {
+			"Items.BerserkC2MK4.OnEquip",
+			"Items.BerserkC3MK4.OnEquip",
+		}
+
+		local berserkEquip5 = {
+			"Items.BerserkC3MK5.OnEquip",
+			"Items.BerserkC4MK5.OnEquip",
+		}
+
+
 	-- CARRY CAPACITY
 
+		-- GLOBAL PREREQ
+		local berserkEffectPrereq = Ti200.createStatusEffectPrereq("berserkGlobalPrereq", "", false, "StatusEffectPrereq", "BaseStatusEffect.BerserkPlayerBuff", "None")
+
 		-- MINIMUM CAPACITY Mk.1 / Mk.2
-		if TweakDB:GetRecord("Items.BerserkCarryCapacity01") == nil then
-			TweakDB:CreateRecord("Items.BerserkCarryCapacity01", "gamedataGameplayLogicPackage_Record")	-- LOGIC PACKAGE
-				TweakDB:CloneRecord("Items.BerserkCarryCapacity01_inline0", "Items.BerserkC4MK5_inline15")	-- STAT GROUP EFFECTOR
-					TweakDB:CloneRecord("Items.BerserkCarryCapacity01_inline1", "Items.BerserkC4MK5_inline17")	-- STAT MODIFIER GROUP
-						TweakDB:CloneRecord("Items.BerserkCarryCapacity01_inline2", "Items.TitaniumInfusedBonesCommon_inline1")	-- CONSTANT STAT MODIFIER
-				TweakDB:CloneRecord("Items.BerserkCarryCapacity01_inline3", "Items.TitaniumInfusedBonesCommon_inline2")	-- UIDATA
-			TweakDB:SetFlat("Items.BerserkCarryCapacity01.effectors", {"Items.BerserkCarryCapacity01_inline0"})
-				TweakDB:SetFlat("Items.BerserkCarryCapacity01_inline0.statGroup", "Items.BerserkCarryCapacity01_inline1")
-					TweakDB:SetFlat("Items.BerserkCarryCapacity01_inline1.statModifiers", {"Items.BerserkCarryCapacity01_inline2"})
-						TweakDB:SetFlat("Items.BerserkCarryCapacity01_inline2.value", 0.1)
-			TweakDB:SetFlat("Items.BerserkCarryCapacity01.UIData", "Items.BerserkCarryCapacity01_inline3")
-				TweakDB:SetFlat("Items.BerserkCarryCapacity01_inline3.intValues", {10})
-			Ti200.arrayInsert("Items.BerserkC1MK1.OnEquip", "Items.BerserkCarryCapacity01")
-			Ti200.arrayInsert("Items.BerserkC1MK2.OnEquip", "Items.BerserkCarryCapacity01")
-			Ti200.arrayInsert("Items.BerserkC2MK1.OnEquip", "Items.BerserkCarryCapacity01")
-			Ti200.arrayInsert("Items.BerserkC2MK2.OnEquip", "Items.BerserkCarryCapacity01")
+		local berserkCarrySkill01 = "Items.BerserkCarryCapacity01"
+		if TweakDB:GetRecord(berserkCarrySkill01) == nil then
+			local zerkCarry01 = { Ti200.createConstantStat(berserkCarrySkill01.."_stat0", "AdditiveMultiplier", "BaseStats.CarryCapacity", 0.1) }
+			local zerkCarry01UiData = Ti200.createUiData(berserkCarrySkill01, {}, "ability_silenced", {10}, "LocKey#40830", "", {}, {})
+			Ti200.makeStatGroupPackage(berserkCarrySkill01, "ApplyStatGroupEffector", berserkEffectPrereq, zerkCarry01, zerkCarry01UiData)
+			Ti200.associateRecordToArray(berserkEquip12, berserkCarrySkill01)
 		end
 
 		-- LOW CAPACITY Mk.3
-		if TweakDB:GetRecord("Items.BerserkCarryCapacity02") == nil then
-			TweakDB:CreateRecord("Items.BerserkCarryCapacity02", "gamedataGameplayLogicPackage_Record")	-- LOGIC PACKAGE
-				TweakDB:CloneRecord("Items.BerserkCarryCapacity02_inline0", "Items.BerserkC4MK5_inline15")	-- STAT GROUP EFFECTOR
-					TweakDB:CloneRecord("Items.BerserkCarryCapacity02_inline1", "Items.BerserkC4MK5_inline17")	-- STAT MODIFIER GROUP
-						TweakDB:CloneRecord("Items.BerserkCarryCapacity02_inline2", "Items.TitaniumInfusedBonesCommon_inline1")	-- CONSTANT STAT MODIFIER
-				TweakDB:CloneRecord("Items.BerserkCarryCapacity02_inline3", "Items.TitaniumInfusedBonesCommon_inline2")	-- UIDATA
-			TweakDB:SetFlat("Items.BerserkCarryCapacity02.effectors", {"Items.BerserkCarryCapacity02_inline0"})
-				TweakDB:SetFlat("Items.BerserkCarryCapacity02_inline0.statGroup", "Items.BerserkCarryCapacity02_inline1")
-					TweakDB:SetFlat("Items.BerserkCarryCapacity02_inline1.statModifiers", {"Items.BerserkCarryCapacity02_inline2"})
-						TweakDB:SetFlat("Items.BerserkCarryCapacity02_inline2.value", 0.2)
-			TweakDB:SetFlat("Items.BerserkCarryCapacity02.UIData", "Items.BerserkCarryCapacity02_inline3")
-				TweakDB:SetFlat("Items.BerserkCarryCapacity02_inline3.intValues", {20})
-			Ti200.arrayInsert("Items.BerserkC1MK3.OnEquip", "Items.BerserkCarryCapacity02")
-			Ti200.arrayInsert("Items.BerserkC2MK3.OnEquip", "Items.BerserkCarryCapacity02")
+		local berserkCarrySkill02 = "Items.BerserkCarryCapacity02"
+		if TweakDB:GetRecord(berserkCarrySkill02) == nil then
+			local zerkCarry02 = { Ti200.createConstantStat(berserkCarrySkill02.."_stat0", "AdditiveMultiplier", "BaseStats.CarryCapacity", 0.2) }
+			local zerkCarry02UiData = Ti200.createUiData(berserkCarrySkill02, {}, "ability_silenced", {20}, "LocKey#40830", "", {}, {})
+			Ti200.makeStatGroupPackage(berserkCarrySkill02, "ApplyStatGroupEffector", berserkEffectPrereq, zerkCarry02, zerkCarry02UiData)
+			Ti200.associateRecordToArray(berserkEquip3, berserkCarrySkill02)
 		end
 
 		-- MEDIUM CAPACITY Mk.4
-		if TweakDB:GetRecord("Items.BerserkCarryCapacity03") == nil then
-			TweakDB:CreateRecord("Items.BerserkCarryCapacity03", "gamedataGameplayLogicPackage_Record")	-- LOGIC PACKAGE
-				TweakDB:CloneRecord("Items.BerserkCarryCapacity03_inline0", "Items.BerserkC4MK5_inline15")	-- STAT GROUP EFFECTOR
-					TweakDB:CloneRecord("Items.BerserkCarryCapacity03_inline1", "Items.BerserkC4MK5_inline17")	-- STAT MODIFIER GROUP
-						TweakDB:CloneRecord("Items.BerserkCarryCapacity03_inline2", "Items.TitaniumInfusedBonesCommon_inline1")	-- CONSTANT STAT MODIFIER
-				TweakDB:CloneRecord("Items.BerserkCarryCapacity03_inline3", "Items.TitaniumInfusedBonesCommon_inline2")	-- UIDATA
-			TweakDB:SetFlat("Items.BerserkCarryCapacity03.effectors", {"Items.BerserkCarryCapacity03_inline0"})
-				TweakDB:SetFlat("Items.BerserkCarryCapacity03_inline0.statGroup", "Items.BerserkCarryCapacity03_inline1")
-					TweakDB:SetFlat("Items.BerserkCarryCapacity03_inline1.statModifiers", {"Items.BerserkCarryCapacity03_inline2"})
-						TweakDB:SetFlat("Items.BerserkCarryCapacity03_inline2.value", 0.3)
-			TweakDB:SetFlat("Items.BerserkCarryCapacity03.UIData", "Items.BerserkCarryCapacity03_inline3")
-				TweakDB:SetFlat("Items.BerserkCarryCapacity03_inline3.intValues", {30})
-			Ti200.arrayInsert("Items.BerserkC2MK4.OnEquip", "Items.BerserkCarryCapacity03")
-			Ti200.arrayInsert("Items.BerserkC3MK4.OnEquip", "Items.BerserkCarryCapacity03")
+		local berserkCarrySkill03 = "Items.BerserkCarryCapacity03"
+		if TweakDB:GetRecord(berserkCarrySkill03) == nil then
+			local zerkCarry03 = { Ti200.createConstantStat(berserkCarrySkill03.."_stat0", "AdditiveMultiplier", "BaseStats.CarryCapacity", 0.3) }
+			local zerkCarry03UiData = Ti200.createUiData(berserkCarrySkill03, {}, "ability_silenced", {30}, "LocKey#40830", "", {}, {})
+			Ti200.makeStatGroupPackage(berserkCarrySkill03, "ApplyStatGroupEffector", berserkEffectPrereq, zerkCarry03, zerkCarry03UiData)
+			Ti200.associateRecordToArray(berserkEquip4, berserkCarrySkill03)
 		end
 
 		-- HIGH CAPACITY Mk.5
-		if TweakDB:GetRecord("Items.BerserkCarryCapacity04") == nil then
-			TweakDB:CreateRecord("Items.BerserkCarryCapacity04", "gamedataGameplayLogicPackage_Record")	-- LOGIC PACKAGE
-				TweakDB:CloneRecord("Items.BerserkCarryCapacity04_inline0", "Items.BerserkC4MK5_inline15")	-- STAT GROUP EFFECTOR
-					TweakDB:CloneRecord("Items.BerserkCarryCapacity04_inline1", "Items.BerserkC4MK5_inline17")	-- STAT MODIFIER GROUP
-						TweakDB:CloneRecord("Items.BerserkCarryCapacity04_inline2", "Items.TitaniumInfusedBonesCommon_inline1")	-- CONSTANT STAT MODIFIER
-				TweakDB:CloneRecord("Items.BerserkCarryCapacity04_inline3", "Items.TitaniumInfusedBonesCommon_inline2")	-- UIDATA
-			TweakDB:SetFlat("Items.BerserkCarryCapacity04.effectors", {"Items.BerserkCarryCapacity04_inline0"})
-				TweakDB:SetFlat("Items.BerserkCarryCapacity04_inline0.statGroup", "Items.BerserkCarryCapacity04_inline1")
-					TweakDB:SetFlat("Items.BerserkCarryCapacity04_inline1.statModifiers", {"Items.BerserkCarryCapacity04_inline2"})
-						TweakDB:SetFlat("Items.BerserkCarryCapacity04_inline2.value", 0.4)
-			TweakDB:SetFlat("Items.BerserkCarryCapacity04.UIData", "Items.BerserkCarryCapacity04_inline3")
-				TweakDB:SetFlat("Items.BerserkCarryCapacity04_inline3.intValues", {40})
-			Ti200.arrayInsert("Items.BerserkC3MK5.OnEquip", "Items.BerserkCarryCapacity04")
-			Ti200.arrayInsert("Items.BerserkC4MK5.OnEquip", "Items.BerserkCarryCapacity04")
+		local berserkCarrySkill04 = "Items.BerserkCarryCapacity04"
+		if TweakDB:GetRecord(berserkCarrySkill04) == nil then
+			local zerkCarry04 = { Ti200.createConstantStat(berserkCarrySkill04.."_stat0", "AdditiveMultiplier", "BaseStats.CarryCapacity", 0.4) }
+			local zerkCarry04UiData = Ti200.createUiData(berserkCarrySkill04, {}, "ability_silenced", {40}, "LocKey#40830", "", {}, {})
+			Ti200.makeStatGroupPackage(berserkCarrySkill04, "ApplyStatGroupEffector", berserkEffectPrereq, zerkCarry04, zerkCarry04UiData)
+			Ti200.associateRecordToArray(berserkEquip5, berserkCarrySkill04)
 		end
 
 
 	-- DAMAGE REDUCTION
 
 		-- MINIMUM REDUCTION Mk.1 / Mk.2
-		if TweakDB:GetRecord("Items.BerserkDmgReduction01") == nil then
-			TweakDB:CreateRecord("Items.BerserkDmgReduction01", "gamedataGameplayLogicPackage_Record")	-- LOGIC PACKAGE
-				TweakDB:CloneRecord("Items.BerserkDmgReduction01_inline0", "Items.BerserkC4MK5_inline9")	-- EFFECTOR EFFECTOR
-					TweakDB:CloneRecord("Items.BerserkDmgReduction01_inline1", "Items.PainReductor_inline2")	-- EFFECTOR
-				TweakDB:CloneRecord("Items.BerserkDmgReduction01_inline2", "Items.PainReductor_inline3")	-- UIDATA
-			TweakDB:SetFlat("Items.BerserkDmgReduction01.effectors", {"Items.BerserkDmgReduction01_inline0"})
-				TweakDB:SetFlat("Items.BerserkDmgReduction01_inline0.effectorToApply", "Items.BerserkDmgReduction01_inline1")
-					TweakDB:SetFlat("Items.BerserkDmgReduction01_inline1.operationType", 'Multiply')
-					TweakDB:SetFlat("Items.BerserkDmgReduction01_inline1.value", 0.9, 'Float')
-			TweakDB:SetFlat("Items.BerserkDmgReduction01.UIData", "Items.BerserkDmgReduction01_inline2")
-				TweakDB:SetFlat("Items.BerserkDmgReduction01_inline2.intValues", {10})	-- UIDATA
-			Ti200.arrayInsert("Items.BerserkC1MK1.OnEquip", "Items.BerserkDmgReduction01")
-			Ti200.arrayInsert("Items.BerserkC1MK2.OnEquip", "Items.BerserkDmgReduction01")
-			Ti200.arrayInsert("Items.BerserkC2MK1.OnEquip", "Items.BerserkDmgReduction01")
-			Ti200.arrayInsert("Items.BerserkC2MK2.OnEquip", "Items.BerserkDmgReduction01")
+		local berserkLowerDmg01 = "Items.BerserkDmgReduction01"
+		if TweakDB:GetRecord(berserkLowerDmg01) == nil then
+			local berserkLowerDmg01UiData = Ti200.createUiData(berserkLowerDmg01, {}, "ability_silenced", {10}, "LocKey#40805", "", {}, {})
+			Ti200.makeEffectorGroupPackage(berserkLowerDmg01, "ApplyEffectorEffector", "ModifyDamageEffector", berserkEffectPrereq, "Prereqs.ProcessHitReceived", "Multiply", 0.9, "Float", berserkLowerDmg01UiData)
+			Ti200.associateRecordToArray(berserkEquip12, berserkLowerDmg01)
 		end
 
 		-- LOW REDUCTION Mk.3
-		if TweakDB:GetRecord("Items.BerserkDmgReduction02") == nil then
-			TweakDB:CreateRecord("Items.BerserkDmgReduction02", "gamedataGameplayLogicPackage_Record")	-- LOGIC PACKAGE
-				TweakDB:CloneRecord("Items.BerserkDmgReduction02_inline0", "Items.BerserkC4MK5_inline9")	-- EFFECTOR EFFECTOR
-					TweakDB:CloneRecord("Items.BerserkDmgReduction02_inline1", "Items.PainReductor_inline2")	-- EFFECTOR
-				TweakDB:CloneRecord("Items.BerserkDmgReduction02_inline2", "Items.PainReductor_inline3")	-- UIDATA
-			TweakDB:SetFlat("Items.BerserkDmgReduction02.effectors", {"Items.BerserkDmgReduction02_inline0"})
-				TweakDB:SetFlat("Items.BerserkDmgReduction02_inline0.effectorToApply", "Items.BerserkDmgReduction02_inline1")
-					TweakDB:SetFlat("Items.BerserkDmgReduction02_inline1.operationType", 'Multiply')
-					TweakDB:SetFlat("Items.BerserkDmgReduction02_inline1.value", 0.8, 'Float')
-			TweakDB:SetFlat("Items.BerserkDmgReduction02.UIData", "Items.BerserkDmgReduction02_inline2")
-				TweakDB:SetFlat("Items.BerserkDmgReduction02_inline2.intValues", {20})	-- UIDATA
-			Ti200.arrayInsert("Items.BerserkC1MK3.OnEquip", "Items.BerserkDmgReduction02")
-			Ti200.arrayInsert("Items.BerserkC2MK3.OnEquip", "Items.BerserkDmgReduction02")
+		local berserkLowerDmg02 = "Items.BerserkDmgReduction02"
+		if TweakDB:GetRecord(berserkLowerDmg02) == nil then
+			local berserkLowerDmg02UiData = Ti200.createUiData(berserkLowerDmg02, {}, "ability_silenced", {20}, "LocKey#40805", "", {}, {})
+			Ti200.makeEffectorGroupPackage(berserkLowerDmg02, "ApplyEffectorEffector", "ModifyDamageEffector", berserkEffectPrereq, "Prereqs.ProcessHitReceived", "Multiply", 0.8, "Float", berserkLowerDmg02UiData)
+			Ti200.associateRecordToArray(berserkEquip3, berserkLowerDmg02)
 		end
 
 		-- MEDIUM REDUCTION Mk.4
-		if TweakDB:GetRecord("Items.BerserkDmgReduction03") == nil then
-			TweakDB:CreateRecord("Items.BerserkDmgReduction03", "gamedataGameplayLogicPackage_Record")	-- LOGIC PACKAGE
-				TweakDB:CloneRecord("Items.BerserkDmgReduction03_inline0", "Items.BerserkC4MK5_inline9")	-- EFFECTOR EFFECTOR
-					TweakDB:CloneRecord("Items.BerserkDmgReduction03_inline1", "Items.PainReductor_inline2")	-- EFFECTOR
-				TweakDB:CloneRecord("Items.BerserkDmgReduction03_inline2", "Items.PainReductor_inline3")	-- UIDATA
-			TweakDB:SetFlat("Items.BerserkDmgReduction03.effectors", {"Items.BerserkDmgReduction03_inline0"})
-				TweakDB:SetFlat("Items.BerserkDmgReduction03_inline0.effectorToApply", "Items.BerserkDmgReduction03_inline1")
-					TweakDB:SetFlat("Items.BerserkDmgReduction03_inline1.operationType", 'Multiply')
-					TweakDB:SetFlat("Items.BerserkDmgReduction03_inline1.value", 0.7, 'Float')
-			TweakDB:SetFlat("Items.BerserkDmgReduction03.UIData", "Items.BerserkDmgReduction03_inline2")
-				TweakDB:SetFlat("Items.BerserkDmgReduction03_inline2.intValues", {30})	-- UIDATA
-			Ti200.arrayInsert("Items.BerserkC2MK4.OnEquip", "Items.BerserkDmgReduction03")
-			Ti200.arrayInsert("Items.BerserkC3MK4.OnEquip", "Items.BerserkDmgReduction03")
+		local berserkLowerDmg03 = "Items.BerserkDmgReduction03"
+		if TweakDB:GetRecord(berserkLowerDmg03) == nil then
+			local berserkLowerDmg03UiData = Ti200.createUiData(berserkLowerDmg03, {}, "ability_silenced", {30}, "LocKey#40805", "", {}, {})
+			Ti200.makeEffectorGroupPackage(berserkLowerDmg03, "ApplyEffectorEffector", "ModifyDamageEffector", berserkEffectPrereq, "Prereqs.ProcessHitReceived", "Multiply", 0.7, "Float", berserkLowerDmg03UiData)
+			Ti200.associateRecordToArray(berserkEquip4, berserkLowerDmg03)
 		end
 
 		-- HIGH REDUCTION Mk.5
-		if TweakDB:GetRecord("Items.BerserkDmgReduction04") == nil then
-			TweakDB:CreateRecord("Items.BerserkDmgReduction04", "gamedataGameplayLogicPackage_Record")	-- LOGIC PACKAGE
-				TweakDB:CloneRecord("Items.BerserkDmgReduction04_inline0", "Items.BerserkC4MK5_inline9")	-- EFFECTOR EFFECTOR
-					TweakDB:CloneRecord("Items.BerserkDmgReduction04_inline1", "Items.PainReductor_inline2")	-- EFFECTOR
-				TweakDB:CloneRecord("Items.BerserkDmgReduction04_inline2", "Items.PainReductor_inline3")	-- UIDATA
-			TweakDB:SetFlat("Items.BerserkDmgReduction04.effectors", {"Items.BerserkDmgReduction04_inline0"})
-				TweakDB:SetFlat("Items.BerserkDmgReduction04_inline0.effectorToApply", "Items.BerserkDmgReduction04_inline1")
-					TweakDB:SetFlat("Items.BerserkDmgReduction04_inline1.operationType", 'Multiply')
-					TweakDB:SetFlat("Items.BerserkDmgReduction04_inline1.value", 0.6, 'Float')
-			TweakDB:SetFlat("Items.BerserkDmgReduction04.UIData", "Items.BerserkDmgReduction04_inline2")
-				TweakDB:SetFlat("Items.BerserkDmgReduction04_inline2.intValues", {40})	-- UIDATA
-			Ti200.arrayInsert("Items.BerserkC3MK5.OnEquip", "Items.BerserkDmgReduction04")
-			Ti200.arrayInsert("Items.BerserkC4MK5.OnEquip", "Items.BerserkDmgReduction04")
+		local berserkLowerDmg04 = "Items.BerserkDmgReduction04"
+		if TweakDB:GetRecord(berserkLowerDmg04) == nil then
+			local berserkLowerDmg04UiData = Ti200.createUiData(berserkLowerDmg04, {}, "ability_silenced", {40}, "LocKey#40805", "", {}, {})
+			Ti200.makeEffectorGroupPackage(berserkLowerDmg04, "ApplyEffectorEffector", "ModifyDamageEffector", berserkEffectPrereq, "Prereqs.ProcessHitReceived", "Multiply", 0.6, "Float", berserkLowerDmg04UiData)
+			Ti200.associateRecordToArray(berserkEquip5, berserkLowerDmg04)
 		end
 
 

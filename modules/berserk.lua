@@ -56,7 +56,6 @@
 	TweakDB:SetFlat("Items.BerserkC3MK5_inline2.value", 30)	-- sway
 	TweakDB:SetFlat("Items.BerserkC3MK5_inline3.value", 30)	-- melee dmg
 	TweakDB:SetFlat("Items.BerserkC3MK5_inline4.value", 40)	-- armor / resistances
-	TweakDB:SetFlat("Items.BerserkC3MK5.blueprint", berserkBlueprintMK5)	-- blueprint
 	TweakDB:SetFlat("Items.BerserkC3MK5.buyPrice", {"Price.BasePrice","Price.BuyMultiplier","Price.Cyberware","Price.CyberwareQualityMultiplier","Price.IconicMultiplier","Price.Berserk_Iconic"})
 	TweakDB:SetFlat("Items.BerserkC3MK5.sellPrice", {"Price.BasePrice","Price.CyberwareSellMultiplier","Price.Cyberware","Price.CyberwareQualityMultiplier","Price.CraftingTraitMultiplier","Price.IconicMultiplier","Price.Berserk_Iconic"})
 
@@ -69,6 +68,5 @@
 	TweakDB:SetFlat("Items.BerserkC4MK5_inline6.value", 30)	-- cooldown
 	TweakDB:SetFlat("Items.BerserkC4MK5_inline18.modifierType", "Multiplier")
 	TweakDB:SetFlat("Items.BerserkC4MK5_inline18.value", 1.4)	-- health
-	TweakDB:SetFlat("Items.BerserkC4MK5.blueprint", berserkBlueprintMK5)	-- blueprint
 	TweakDB:SetFlat("Items.BerserkC4MK5.buyPrice", {"Price.BasePrice","Price.BuyMultiplier","Price.Cyberware","Price.CyberwareQualityMultiplier","Price.IconicMultiplier","Price.Berserk_Iconic"})
 	TweakDB:SetFlat("Items.BerserkC4MK5.sellPrice", {"Price.BasePrice","Price.CyberwareSellMultiplier","Price.Cyberware","Price.CyberwareQualityMultiplier","Price.CraftingTraitMultiplier","Price.IconicMultiplier","Price.Berserk_Iconic"})

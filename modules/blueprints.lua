@@ -39,6 +39,17 @@ local sandevistanSlots = {
     "Items.SandevistanBlueprint_inline3",
 }
 
+------------------------------------------------------[ BLUEPRINTS ]------------------------------------------------------
+local berserkOrigBlueprints = {
+    "Items.BerserkC3MK5.blueprint",
+    "Items.BerserkC4MK5.blueprint",
+}
+
+local sandevistanOrigBlueprints = {
+    "Items.SandevistanC3MK5.blueprint",
+    "Items.SandevistanC4MK5.blueprint",
+}
+
 ------------------------------------------------------[ NEW SLOTS ]------------------------------------------------------
 local berserkNewSlots = {
     [0] = {
@@ -61,5 +72,7 @@ local sandevistanNewSlots = {
 }
 
 ------------------------------------------------------[ SLOTS ENABLER ]------------------------------------------------------
-berserkBlueprintMK5 = Ti200.makeUltraBlueprint(berserkNewSlots, "BerserkBlueprintMK5", berserkSlots, berserkMods, true)
-sandevistanBlueprintMK5 = Ti200.makeUltraBlueprint(sandevistanNewSlots, "SandevistanBlueprintMK5", sandevistanSlots, sandevistanMods, true)
+local berserkBlueprintMK5 = Ti200.makeUltraBlueprint(berserkNewSlots, "BerserkBlueprintMK5", berserkSlots, berserkMods, true)
+local sandevistanBlueprintMK5 = Ti200.makeUltraBlueprint(sandevistanNewSlots, "SandevistanBlueprintMK5", sandevistanSlots, sandevistanMods, true)
+Ti200.setValueToRecordAttribute(berserkOrigBlueprints, berserkBlueprintMK5)
+Ti200.setValueToRecordAttribute(sandevistanOrigBlueprints, sandevistanBlueprintMK5)
