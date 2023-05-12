@@ -1,4 +1,4 @@
--- ver. 3.0.6   BLUEPRINTS FOR MK5 HARDWARE
+-- ver. 3.1.0   BLUEPRINTS FOR MK5 HARDWARE
 
 ------------------------------------------------------[ MODS ]------------------------------------------------------
 local berserkMods = {

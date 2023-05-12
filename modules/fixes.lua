@@ -1,10 +1,10 @@
--- ver. 3.0.6
+-- ver. 3.1.0
 
 -- BERSERK FIXES
 
 	-- ADD RESISTANCES
 
-		-- FIX BERSERKPLAYERBUFF
+		-- FIX BERSERK PLAYER BUFF
 		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_inline21.modifierType", "AdditiveMultiplier")
 		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_inline21.refObject", "Player")
 		TweakDB:SetFlat("BaseStatusEffect.BerserkPlayerBuff_inline21.value", 0.01)
@@ -78,28 +78,27 @@
 -- BERSERK MK.1 / MK.5 ADDITIONAL TWEAKS
 
 	-- EQUIP TABLES
+	local berserkEquip12 = {
+		"Items.BerserkC1MK1.OnEquip",
+		"Items.BerserkC1MK2.OnEquip",
+		"Items.BerserkC2MK1.OnEquip",
+		"Items.BerserkC2MK2.OnEquip",
+	}
 
-		local berserkEquip12 = {
-			"Items.BerserkC1MK1.OnEquip",
-			"Items.BerserkC1MK2.OnEquip",
-			"Items.BerserkC2MK1.OnEquip",
-			"Items.BerserkC2MK2.OnEquip",
-		}
+	local berserkEquip3 = {
+		"Items.BerserkC1MK3.OnEquip",
+		"Items.BerserkC2MK3.OnEquip",
+	}
 
-		local berserkEquip3 = {
-			"Items.BerserkC1MK3.OnEquip",
-			"Items.BerserkC2MK3.OnEquip",
-		}
+	local berserkEquip4 = {
+		"Items.BerserkC2MK4.OnEquip",
+		"Items.BerserkC3MK4.OnEquip",
+	}
 
-		local berserkEquip4 = {
-			"Items.BerserkC2MK4.OnEquip",
-			"Items.BerserkC3MK4.OnEquip",
-		}
-
-		local berserkEquip5 = {
-			"Items.BerserkC3MK5.OnEquip",
-			"Items.BerserkC4MK5.OnEquip",
-		}
+	local berserkEquip5 = {
+		"Items.BerserkC3MK5.OnEquip",
+		"Items.BerserkC4MK5.OnEquip",
+	}
 
 
 	-- CARRY CAPACITY

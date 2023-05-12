@@ -1,4 +1,4 @@
--- ver. 3.0.6	- LUA MODULES LOADER
+-- ver. 3.1.0	- LUA MODULES LOADER
 
 Ti200 = require("./utils.lua")	-- import functions
 
